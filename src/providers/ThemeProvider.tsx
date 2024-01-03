@@ -1,7 +1,7 @@
 import { DefaultTheme, PaperProvider, useTheme } from 'react-native-paper';
 import React from 'react';
 
-const theme = {
+export const appTheme = {
   ...DefaultTheme,
   spacing: {
     base: 8,
@@ -9,9 +9,9 @@ const theme = {
 };
 
 const ThemeProvider = ({ children }: any): React.JSX.Element => {
-  return <PaperProvider theme={theme}>{children}</PaperProvider>;
+  return <PaperProvider theme={appTheme}>{children}</PaperProvider>;
 };
 
-export type AppTheme = typeof theme;
+export type AppTheme = typeof appTheme;
 export const useAppTheme = () => useTheme<AppTheme>();
 export default ThemeProvider;
