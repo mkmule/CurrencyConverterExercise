@@ -3,6 +3,7 @@ import { Button, Text } from 'react-native-paper';
 import { StyleSheet, View } from 'react-native';
 import { appTheme } from '../providers/ThemeProvider.tsx';
 import ProcessingTimeInfo from '../components/ProcessingTimeInfo.tsx';
+import InputMoneyAmount from '../components/InputMoneyAmount.tsx';
 
 const TransferStartScreen = () => {
   const submitForm = () => {
@@ -15,8 +16,9 @@ const TransferStartScreen = () => {
         How much do you want to transfer?
       </Text>
 
-      <View>
+      <View style={styles.containerInputForm}>
         <Text>This is main form</Text>
+        <InputMoneyAmount decimals={2} />
       </View>
 
       <View style={styles.containerProcessingTime}>
@@ -36,6 +38,9 @@ const styles = StyleSheet.create({
     height: '100%',
     display: 'flex',
     padding: appTheme.spacing.base,
+  },
+  containerInputForm: {
+    width: '100%',
   },
   containerProcessingTime: {
     display: 'flex',
