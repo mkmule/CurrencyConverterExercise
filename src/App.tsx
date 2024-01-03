@@ -1,17 +1,17 @@
 import React from 'react';
 import { SafeAreaView, ScrollView } from 'react-native';
-import { PaperProvider } from 'react-native-paper';
 import TransferStartScreen from './screens/TransferStartScreen.tsx';
+import ThemeProvider from './providers/ThemeProvider.tsx';
 
 const App = (): React.JSX.Element => {
   return (
-    <PaperProvider>
+    <ThemeProvider>
       <SafeAreaView>
         <ScrollView contentInsetAdjustmentBehavior="automatic">
           <TransferStartScreen />
         </ScrollView>
       </SafeAreaView>
-    </PaperProvider>
+    </ThemeProvider>
   );
 };
 
