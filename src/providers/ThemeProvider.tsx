@@ -3,6 +3,10 @@ import React from 'react';
 
 export const appTheme = {
   ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: '#467be5',
+  },
   spacing: {
     base: 8,
   },
