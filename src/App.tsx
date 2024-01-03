@@ -1,10 +1,13 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, useColorScheme, View} from 'react-native';
-
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import { SafeAreaView, ScrollView, useColorScheme, View } from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {PaperProvider} from 'react-native-paper';
-import {ActivityIndicator, MD2Colors} from 'react-native-paper';
+import {
+  ActivityIndicator,
+  MD2Colors,
+  PaperProvider,
+  Text,
+} from 'react-native-paper';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -25,6 +28,7 @@ function App(): React.JSX.Element {
             }}>
             <MaterialCommunityIcons name="bell" size={30} color="#333" />
             <ActivityIndicator animating={true} color={MD2Colors.red800} />
+            <Text variant="displayLarge">Display Large</Text>
           </View>
         </ScrollView>
       </SafeAreaView>
