@@ -1,11 +1,33 @@
 import * as React from 'react';
+import { useCallback, useState } from 'react';
 import { Button, Text } from 'react-native-paper';
 import { StyleSheet, View } from 'react-native';
 import { appTheme } from '../providers/ThemeProvider.tsx';
 import ProcessingTimeInfo from '../components/ProcessingTimeInfo.tsx';
 import InputMoneyAmount from '../components/InputMoneyAmount.tsx';
+import { convert } from '../utils/conversion.ts';
 
 const TransferStartScreen = () => {
+  const [rate, setRate] = useState(0.27177700795811);
+  const [rateInverse, setRateInverse] = useState(3.6794871189182);
+
+  const [amountFrom, setAmountFrom] = useState(0);
+  const [amountTo, setAmountTo] = useState(0);
+
+  const convertTo = useCallback(
+    (from: number) => {
+      setAmountFrom(from);
+      setAmountTo(convert(from, rate, 2));
+    },
+    [rate],
+  );
+  const convertFrom = useCallback(
+    (to: number) => {
+      setAmountTo(to);
+      setAmountFrom(convert(to, rateInverse, 2));
+    },
+    [rateInverse],
+  );
   const submitForm = () => {
     console.log('Pressed: submitForm');
   };
@@ -17,8 +39,27 @@ const TransferStartScreen = () => {
       </Text>
 
       <View style={styles.containerInputForm}>
-        <Text>This is main form</Text>
-        <InputMoneyAmount decimals={2} />
+        <Text>
+          Convert rate: {rate}
+          {'\n'}
+          Inverse rate: {rateInverse}
+        </Text>
+        <View>
+          <Text>From: ({amountFrom})</Text>
+          <InputMoneyAmount
+            decimals={2}
+            value={amountFrom}
+            onChangeAmount={convertTo}
+          />
+        </View>
+        <View>
+          <Text>To: ({amountTo})</Text>
+          <InputMoneyAmount
+            decimals={2}
+            value={amountTo}
+            onChangeAmount={convertFrom}
+          />
+        </View>
       </View>
 
       <View style={styles.containerProcessingTime}>
