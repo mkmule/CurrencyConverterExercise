@@ -6,11 +6,9 @@ import { appTheme } from '../providers/ThemeProvider.tsx';
 import ProcessingTimeInfo from '../components/ProcessingTimeInfo.tsx';
 import InputMoneyAmount from '../components/InputMoneyAmount.tsx';
 import { convert } from '../utils/conversion.ts';
-import { CurrencyAED, CurrencyUSD, getCurrencies } from '../services/api.ts';
-import { Currency } from '../types/finance.ts';
+import { CurrencyAED, CurrencyUSD } from '../services/api.ts';
 
-const TransferStartScreen = () => {
-  const [currencies, setCurrencies] = useState<Currency[]>([]);
+const TransferStartScreen = ({ route, navigation }: any) => {
   const currencyFrom = CurrencyAED;
   const [currencyTo, setCurrencyTo] = useState(CurrencyUSD);
 
@@ -20,33 +18,32 @@ const TransferStartScreen = () => {
   const [amountFrom, setAmountFrom] = useState(0);
   const [amountTo, setAmountTo] = useState(0);
 
-  useEffect(() => {
-    getCurrencies()
-      .then(currencies => {
-        setCurrencies(Object.values(currencies));
-      })
-      .catch(() => {
-        setCurrencies([]);
-      });
-  }, []);
-
   const convertTo = useCallback(
     (from: number) => {
       setAmountFrom(from);
-      setAmountTo(convert(from, rate, 2));
+      setAmountTo(convert(from, rate, currencyTo.decimalDigits));
     },
-    [rate],
+    [currencyTo.decimalDigits, rate],
   );
   const convertFrom = useCallback(
     (to: number) => {
       setAmountTo(to);
-      setAmountFrom(convert(to, rateInverse, 2));
+      setAmountFrom(convert(to, rateInverse, currencyFrom.decimalDigits));
     },
-    [rateInverse],
+    [currencyFrom.decimalDigits, rateInverse],
   );
   const submitForm = () => {
     console.log('Pressed: submitForm');
+    navigation.navigate('CurrenciesListScreen');
   };
+
+  useEffect(() => {
+    const selectedCurrency = route.params?.selectedCurrency;
+
+    if (selectedCurrency) {
+      setCurrencyTo(selectedCurrency);
+    }
+  }, [amountFrom, convertTo, route.params?.selectedCurrency]);
 
   return (
     <View style={styles.container}>

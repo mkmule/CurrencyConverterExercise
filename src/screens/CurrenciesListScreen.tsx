@@ -6,13 +6,15 @@ import { List, Searchbar } from 'react-native-paper';
 import { Currencies } from '../services/api.ts';
 import { Currency } from '../types/finance.ts';
 
-const CurrenciesListScreen = () => {
+const CurrenciesListScreen = ({ navigation }: any) => {
   const [currenciesFiltered, setCurrenciesFiltered] = useState(Currencies);
   const [searchQuery, setSearchQuery] = React.useState('');
 
   const onChangeSearch = (query: string) => setSearchQuery(query);
   const onPressCurrency = (currency: Currency) => {
-    console.log(currency);
+    navigation.navigate('TransferStartScreen', {
+      selectedCurrency: currency,
+    });
   };
 
   useEffect(() => {
