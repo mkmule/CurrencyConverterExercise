@@ -1,18 +1,34 @@
 import * as React from 'react';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Button, Text } from 'react-native-paper';
 import { StyleSheet, View } from 'react-native';
 import { appTheme } from '../providers/ThemeProvider.tsx';
 import ProcessingTimeInfo from '../components/ProcessingTimeInfo.tsx';
 import InputMoneyAmount from '../components/InputMoneyAmount.tsx';
 import { convert } from '../utils/conversion.ts';
+import { CurrencyAED, CurrencyUSD, getCurrencies } from '../services/api.ts';
+import { Currency } from '../types/finance.ts';
 
 const TransferStartScreen = () => {
+  const [currencies, setCurrencies] = useState<Currency[]>([]);
+  const currencyFrom = CurrencyAED;
+  const [currencyTo, setCurrencyTo] = useState(CurrencyUSD);
+
   const [rate, setRate] = useState(0.27177700795811);
   const [rateInverse, setRateInverse] = useState(3.6794871189182);
 
   const [amountFrom, setAmountFrom] = useState(0);
   const [amountTo, setAmountTo] = useState(0);
+
+  useEffect(() => {
+    getCurrencies()
+      .then(currencies => {
+        setCurrencies(Object.values(currencies));
+      })
+      .catch(() => {
+        setCurrencies([]);
+      });
+  }, []);
 
   const convertTo = useCallback(
     (from: number) => {
@@ -45,7 +61,9 @@ const TransferStartScreen = () => {
           Inverse rate: {rateInverse}
         </Text>
         <View>
-          <Text>From: ({amountFrom})</Text>
+          <Text>
+            From: {currencyFrom.name} ({amountFrom})
+          </Text>
           <InputMoneyAmount
             decimals={2}
             value={amountFrom}
@@ -53,7 +71,9 @@ const TransferStartScreen = () => {
           />
         </View>
         <View>
-          <Text>To: ({amountTo})</Text>
+          <Text>
+            To: {currencyTo.name} ({amountTo})
+          </Text>
           <InputMoneyAmount
             decimals={2}
             value={amountTo}
