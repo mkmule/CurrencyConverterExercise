@@ -37,6 +37,7 @@ export const CurrencyUSD = {
   rounding: 0,
 };
 export const Currencies = Object.values(currencies);
+export const ConversionRates = conversionRatesAED;
 
 export const getCurrencies = (): Promise<{ [key: string]: Currency }> => {
   return new Promise(resolve => {

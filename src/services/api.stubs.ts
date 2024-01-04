@@ -1,5 +1,5 @@
 export const conversionRatesAED = {
-  usd: {
+  USD: {
     code: 'USD',
     alphaCode: 'USD',
     numericCode: '840',
@@ -8,7 +8,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 3.6794871189182,
   },
-  eur: {
+  EUR: {
     code: 'EUR',
     alphaCode: 'EUR',
     numericCode: '978',
@@ -17,7 +17,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 4.023103442751,
   },
-  gbp: {
+  GBP: {
     code: 'GBP',
     alphaCode: 'GBP',
     numericCode: '826',
@@ -26,7 +26,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 4.6495142260352,
   },
-  aud: {
+  AUD: {
     code: 'AUD',
     alphaCode: 'AUD',
     numericCode: '036',
@@ -35,7 +35,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 2.4793894572613,
   },
-  chf: {
+  CHF: {
     code: 'CHF',
     alphaCode: 'CHF',
     numericCode: '756',
@@ -44,7 +44,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 4.3168367433355,
   },
-  cad: {
+  CAD: {
     code: 'CAD',
     alphaCode: 'CAD',
     numericCode: '124',
@@ -53,7 +53,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 2.7583242703244,
   },
-  jpy: {
+  JPY: {
     code: 'JPY',
     alphaCode: 'JPY',
     numericCode: '392',
@@ -62,7 +62,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.025783372561169,
   },
-  pab: {
+  PAB: {
     code: 'PAB',
     alphaCode: 'PAB',
     numericCode: '590',
@@ -71,7 +71,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 3.6794871189182,
   },
-  fjd: {
+  FJD: {
     code: 'FJD',
     alphaCode: 'FJD',
     numericCode: '242',
@@ -80,7 +80,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 1.6482044457366,
   },
-  cdf: {
+  CDF: {
     code: 'CDF',
     alphaCode: 'CDF',
     numericCode: '976',
@@ -89,7 +89,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.0013460751193016,
   },
-  lsl: {
+  LSL: {
     code: 'LSL',
     alphaCode: 'LSL',
     numericCode: '426',
@@ -98,7 +98,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.1971170277443,
   },
-  tzs: {
+  TZS: {
     code: 'TZS',
     alphaCode: 'TZS',
     numericCode: '834',
@@ -107,7 +107,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.0014640871845554,
   },
-  bhd: {
+  BHD: {
     code: 'BHD',
     alphaCode: 'BHD',
     numericCode: '048',
@@ -116,7 +116,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 9.7647283331457,
   },
-  egp: {
+  EGP: {
     code: 'EGP',
     alphaCode: 'EGP',
     numericCode: '818',
@@ -125,7 +125,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.11907588555289,
   },
-  krw: {
+  KRW: {
     code: 'KRW',
     alphaCode: 'KRW',
     numericCode: '410',
@@ -134,7 +134,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.0028099552467065,
   },
-  dzd: {
+  DZD: {
     code: 'DZD',
     alphaCode: 'DZD',
     numericCode: '012',
@@ -143,7 +143,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.027335625009068,
   },
-  iqd: {
+  IQD: {
     code: 'IQD',
     alphaCode: 'IQD',
     numericCode: '368',
@@ -152,7 +152,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.0028010708470751,
   },
-  bob: {
+  BOB: {
     code: 'BOB',
     alphaCode: 'BOB',
     numericCode: '068',
@@ -161,7 +161,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.53304550166564,
   },
-  lrd: {
+  LRD: {
     code: 'LRD',
     alphaCode: 'LRD',
     numericCode: '430',
@@ -170,7 +170,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.019176960603748,
   },
-  ssp: {
+  SSP: {
     code: 'SSP',
     alphaCode: 'SSP',
     numericCode: '728',
@@ -179,7 +179,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.0034020665686459,
   },
-  mru: {
+  MRU: {
     code: 'MRU',
     alphaCode: 'MRU',
     numericCode: '929',
@@ -188,7 +188,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.093672076795231,
   },
-  mnt: {
+  MNT: {
     code: 'MNT',
     alphaCode: 'MNT',
     numericCode: '496',
@@ -197,7 +197,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.0010731722184021,
   },
-  hkd: {
+  HKD: {
     code: 'HKD',
     alphaCode: 'HKD',
     numericCode: '344',
@@ -206,7 +206,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.47117331252239,
   },
-  mad: {
+  MAD: {
     code: 'MAD',
     alphaCode: 'MAD',
     numericCode: '504',
@@ -215,7 +215,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.37198720513111,
   },
-  zar: {
+  ZAR: {
     code: 'ZAR',
     alphaCode: 'ZAR',
     numericCode: '710',
@@ -224,7 +224,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.19598787003625,
   },
-  uzs: {
+  UZS: {
     code: 'UZS',
     alphaCode: 'UZS',
     numericCode: '860',
@@ -233,7 +233,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.00029639686030951,
   },
-  etb: {
+  ETB: {
     code: 'ETB',
     alphaCode: 'ETB',
     numericCode: '230',
@@ -242,7 +242,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.064998832815587,
   },
-  ttd: {
+  TTD: {
     code: 'TTD',
     alphaCode: 'TTD',
     numericCode: '780',
@@ -251,7 +251,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.541288152426,
   },
-  ghs: {
+  GHS: {
     code: 'GHS',
     alphaCode: 'GHS',
     numericCode: '936',
@@ -260,7 +260,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.3075689450678,
   },
-  cup: {
+  CUP: {
     code: 'CUP',
     alphaCode: 'CUP',
     numericCode: '192',
@@ -269,7 +269,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 3.6794871189182,
   },
-  kwd: {
+  KWD: {
     code: 'KWD',
     alphaCode: 'KWD',
     numericCode: '414',
@@ -278,7 +278,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 11.956404218834,
   },
-  thb: {
+  THB: {
     code: 'THB',
     alphaCode: 'THB',
     numericCode: '764',
@@ -287,7 +287,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.10704400786335,
   },
-  twd: {
+  TWD: {
     code: 'TWD',
     alphaCode: 'TWD',
     numericCode: '901',
@@ -296,7 +296,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.1188538546381,
   },
-  tjs: {
+  TJS: {
     code: 'TJS',
     alphaCode: 'TJS',
     numericCode: '972',
@@ -305,7 +305,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.33516481078811,
   },
-  gmd: {
+  GMD: {
     code: 'GMD',
     alphaCode: 'GMD',
     numericCode: '270',
@@ -314,7 +314,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.05467277710588,
   },
-  cve: {
+  CVE: {
     code: 'CVE',
     alphaCode: 'CVE',
     numericCode: '132',
@@ -323,7 +323,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.036509982687906,
   },
-  mwk: {
+  MWK: {
     code: 'MWK',
     alphaCode: 'MWK',
     numericCode: '454',
@@ -332,7 +332,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.0021823012379362,
   },
-  yer: {
+  YER: {
     code: 'YER',
     alphaCode: 'YER',
     numericCode: '886',
@@ -341,7 +341,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.014684204400764,
   },
-  omr: {
+  OMR: {
     code: 'OMR',
     alphaCode: 'OMR',
     numericCode: '512',
@@ -350,7 +350,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 9.5530726217725,
   },
-  ils: {
+  ILS: {
     code: 'ILS',
     alphaCode: 'ILS',
     numericCode: '376',
@@ -359,7 +359,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 1.0084490970231,
   },
-  pen: {
+  PEN: {
     code: 'PEN',
     alphaCode: 'PEN',
     numericCode: '604',
@@ -368,7 +368,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.98964628528888,
   },
-  clp: {
+  CLP: {
     code: 'CLP',
     alphaCode: 'CLP',
     numericCode: '152',
@@ -377,7 +377,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.0041601489847596,
   },
-  bsd: {
+  BSD: {
     code: 'BSD',
     alphaCode: 'BSD',
     numericCode: '044',
@@ -386,7 +386,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 3.6794871189182,
   },
-  xpf: {
+  XPF: {
     code: 'XPF',
     alphaCode: 'XPF',
     numericCode: '953',
@@ -395,7 +395,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.033743152939258,
   },
-  mmk: {
+  MMK: {
     code: 'MMK',
     alphaCode: 'MMK',
     numericCode: '104',
@@ -404,7 +404,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.001749897655092,
   },
-  mur: {
+  MUR: {
     code: 'MUR',
     alphaCode: 'MUR',
     numericCode: '480',
@@ -413,7 +413,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.08334602108552,
   },
-  sek: {
+  SEK: {
     code: 'SEK',
     alphaCode: 'SEK',
     numericCode: '752',
@@ -422,7 +422,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.35868730044518,
   },
-  sgd: {
+  SGD: {
     code: 'SGD',
     alphaCode: 'SGD',
     numericCode: '702',
@@ -431,7 +431,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 2.7713254758648,
   },
-  huf: {
+  HUF: {
     code: 'HUF',
     alphaCode: 'HUF',
     numericCode: '348',
@@ -440,7 +440,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.010552534246921,
   },
-  uah: {
+  UAH: {
     code: 'UAH',
     alphaCode: 'UAH',
     numericCode: '980',
@@ -449,7 +449,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.096558606841047,
   },
-  htg: {
+  HTG: {
     code: 'HTG',
     alphaCode: 'HTG',
     numericCode: '332',
@@ -458,7 +458,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.027866327694732,
   },
-  bnd: {
+  BND: {
     code: 'BND',
     alphaCode: 'BND',
     numericCode: '096',
@@ -467,7 +467,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 2.7688580810182,
   },
-  kmf: {
+  KMF: {
     code: 'KMF',
     alphaCode: 'KMF',
     numericCode: '174',
@@ -476,7 +476,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.0081631158262305,
   },
-  szl: {
+  SZL: {
     code: 'SZL',
     alphaCode: 'SZL',
     numericCode: '748',
@@ -485,7 +485,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.1971170277443,
   },
-  sos: {
+  SOS: {
     code: 'SOS',
     alphaCode: 'SOS',
     numericCode: '706',
@@ -494,7 +494,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.0064288916485548,
   },
-  dop: {
+  DOP: {
     code: 'DOP',
     alphaCode: 'DOP',
     numericCode: '214',
@@ -503,7 +503,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.063358131689201,
   },
-  cny: {
+  CNY: {
     code: 'CNY',
     alphaCode: 'CNY',
     numericCode: '156',
@@ -512,7 +512,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.51476175583138,
   },
-  isk: {
+  ISK: {
     code: 'ISK',
     alphaCode: 'ISK',
     numericCode: '352',
@@ -521,7 +521,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.026662625305766,
   },
-  azn: {
+  AZN: {
     code: 'AZN',
     alphaCode: 'AZN',
     numericCode: '944',
@@ -530,7 +530,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 2.16491192208,
   },
-  irr: {
+  IRR: {
     code: 'IRR',
     alphaCode: 'IRR',
     numericCode: '364',
@@ -539,7 +539,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.000087385329240463,
   },
-  uyu: {
+  UYU: {
     code: 'UYU',
     alphaCode: 'UYU',
     numericCode: '858',
@@ -548,7 +548,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.094114079748112,
   },
-  jmd: {
+  JMD: {
     code: 'JMD',
     alphaCode: 'JMD',
     numericCode: '388',
@@ -557,7 +557,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.023786806902726,
   },
-  gip: {
+  GIP: {
     code: 'GIP',
     alphaCode: 'GIP',
     numericCode: '292',
@@ -566,7 +566,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 4.6464484785918,
   },
-  ern: {
+  ERN: {
     code: 'ERN',
     alphaCode: 'ERN',
     numericCode: '232',
@@ -575,7 +575,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.24367647536397,
   },
-  wst: {
+  WST: {
     code: 'WST',
     alphaCode: 'WST',
     numericCode: '882',
@@ -584,7 +584,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 1.3617485967181,
   },
-  ang: {
+  ANG: {
     code: 'ANG',
     alphaCode: 'ANG',
     numericCode: '532',
@@ -593,7 +593,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 2.0469904116499,
   },
-  lbp: {
+  LBP: {
     code: 'LBP',
     alphaCode: 'LBP',
     numericCode: '422',
@@ -602,7 +602,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.00024420485289346,
   },
-  myr: {
+  MYR: {
     code: 'MYR',
     alphaCode: 'MYR',
     numericCode: '458',
@@ -611,7 +611,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.79502746423814,
   },
-  lyd: {
+  LYD: {
     code: 'LYD',
     alphaCode: 'LYD',
     numericCode: '434',
@@ -620,7 +620,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.7691921334562,
   },
-  mga: {
+  MGA: {
     code: 'MGA',
     alphaCode: 'MGA',
     numericCode: '969',
@@ -629,7 +629,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.00080303522528194,
   },
-  srd: {
+  SRD: {
     code: 'SRD',
     alphaCode: 'SRD',
     numericCode: '968',
@@ -638,7 +638,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.1001258616138,
   },
-  syp: {
+  SYP: {
     code: 'SYP',
     alphaCode: 'SYP',
     numericCode: '760',
@@ -647,7 +647,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.00028212259349745,
   },
-  mop: {
+  MOP: {
     code: 'MOP',
     alphaCode: 'MOP',
     numericCode: '446',
@@ -656,7 +656,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.45646698052481,
   },
-  bam: {
+  BAM: {
     code: 'BAM',
     alphaCode: 'BAM',
     numericCode: '977',
@@ -665,7 +665,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 2.0630906126445,
   },
-  jod: {
+  JOD: {
     code: 'JOD',
     alphaCode: 'JOD',
     numericCode: '400',
@@ -674,7 +674,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 5.1846403242099,
   },
-  php: {
+  PHP: {
     code: 'PHP',
     alphaCode: 'PHP',
     numericCode: '608',
@@ -683,7 +683,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.06613132777902,
   },
-  xof: {
+  XOF: {
     code: 'XOF',
     alphaCode: 'XOF',
     numericCode: '952',
@@ -692,7 +692,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.0061171340019142,
   },
-  rsd: {
+  RSD: {
     code: 'RSD',
     alphaCode: 'RSD',
     numericCode: '941',
@@ -701,7 +701,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.034501416578988,
   },
-  nio: {
+  NIO: {
     code: 'NIO',
     alphaCode: 'NIO',
     numericCode: '558',
@@ -710,7 +710,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.10040245239174,
   },
-  sbd: {
+  SBD: {
     code: 'SBD',
     alphaCode: 'SBD',
     numericCode: '090',
@@ -719,7 +719,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.4397793369225,
   },
-  lak: {
+  LAK: {
     code: 'LAK',
     alphaCode: 'LAK',
     numericCode: '418',
@@ -728,7 +728,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.00017794006714055,
   },
-  gtq: {
+  GTQ: {
     code: 'GTQ',
     alphaCode: 'GTQ',
     numericCode: '320',
@@ -737,7 +737,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.46965114093986,
   },
-  nzd: {
+  NZD: {
     code: 'NZD',
     alphaCode: 'NZD',
     numericCode: '554',
@@ -746,7 +746,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 2.2986843430416,
   },
-  try: {
+  TRY: {
     code: 'TRY',
     alphaCode: 'TRY',
     numericCode: '949',
@@ -755,7 +755,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.12365933978677,
   },
-  ngn: {
+  NGN: {
     code: 'NGN',
     alphaCode: 'NGN',
     numericCode: '566',
@@ -764,7 +764,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.0040882871304443,
   },
-  ars: {
+  ARS: {
     code: 'ARS',
     alphaCode: 'ARS',
     numericCode: '032',
@@ -773,7 +773,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.0045350371734781,
   },
-  stn: {
+  STN: {
     code: 'STN',
     alphaCode: 'STN',
     numericCode: '930',
@@ -782,7 +782,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.16346514976176,
   },
-  bif: {
+  BIF: {
     code: 'BIF',
     alphaCode: 'BIF',
     numericCode: '108',
@@ -791,7 +791,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.0012889130251942,
   },
-  aoa: {
+  AOA: {
     code: 'AOA',
     alphaCode: 'AOA',
     numericCode: '973',
@@ -800,7 +800,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.0043424752136372,
   },
-  mvr: {
+  MVR: {
     code: 'MVR',
     alphaCode: 'MVR',
     numericCode: '462',
@@ -809,7 +809,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.23768367517531,
   },
-  nok: {
+  NOK: {
     code: 'NOK',
     alphaCode: 'NOK',
     numericCode: '578',
@@ -818,7 +818,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.35529348697378,
   },
-  qar: {
+  QAR: {
     code: 'QAR',
     alphaCode: 'QAR',
     numericCode: '634',
@@ -827,7 +827,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 1.0082636156508,
   },
-  czk: {
+  CZK: {
     code: 'CZK',
     alphaCode: 'CZK',
     numericCode: '203',
@@ -836,7 +836,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.16284890061768,
   },
-  byn: {
+  BYN: {
     code: 'BYN',
     alphaCode: 'BYN',
     numericCode: '933',
@@ -845,7 +845,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 1.1529629312255,
   },
-  crc: {
+  CRC: {
     code: 'CRC',
     alphaCode: 'CRC',
     numericCode: '188',
@@ -854,7 +854,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.0070569760090429,
   },
-  bzd: {
+  BZD: {
     code: 'BZD',
     alphaCode: 'BZD',
     numericCode: '084',
@@ -863,7 +863,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 1.8226410296899,
   },
-  gnf: {
+  GNF: {
     code: 'GNF',
     alphaCode: 'GNF',
     numericCode: '324',
@@ -872,7 +872,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.00042687176728536,
   },
-  hnl: {
+  HNL: {
     code: 'HNL',
     alphaCode: 'HNL',
     numericCode: '340',
@@ -881,7 +881,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.14889803545699,
   },
-  kes: {
+  KES: {
     code: 'KES',
     alphaCode: 'KES',
     numericCode: '404',
@@ -890,7 +890,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.023326744242089,
   },
-  ves: {
+  VES: {
     code: 'VES',
     alphaCode: 'VES',
     numericCode: '928',
@@ -899,7 +899,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.10250993160623,
   },
-  bdt: {
+  BDT: {
     code: 'BDT',
     alphaCode: 'BDT',
     numericCode: '050',
@@ -908,7 +908,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.033412478322533,
   },
-  ron: {
+  RON: {
     code: 'RON',
     alphaCode: 'RON',
     numericCode: '946',
@@ -917,7 +917,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.80802200199563,
   },
-  mdl: {
+  MDL: {
     code: 'MDL',
     alphaCode: 'MDL',
     numericCode: '498',
@@ -926,7 +926,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.20908306217469,
   },
-  pyg: {
+  PYG: {
     code: 'PYG',
     alphaCode: 'PYG',
     numericCode: '600',
@@ -935,7 +935,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.00050471216888945,
   },
-  gyd: {
+  GYD: {
     code: 'GYD',
     alphaCode: 'GYD',
     numericCode: '328',
@@ -944,7 +944,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.01754691895243,
   },
-  rwf: {
+  RWF: {
     code: 'RWF',
     alphaCode: 'RWF',
     numericCode: '646',
@@ -953,7 +953,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.002914344830214,
   },
-  mzn: {
+  MZN: {
     code: 'MZN',
     alphaCode: 'MZN',
     numericCode: '943',
@@ -962,7 +962,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.057530881811245,
   },
-  ugx: {
+  UGX: {
     code: 'UGX',
     alphaCode: 'UGX',
     numericCode: '800',
@@ -971,7 +971,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.00096530181500597,
   },
-  idr: {
+  IDR: {
     code: 'IDR',
     alphaCode: 'IDR',
     numericCode: '360',
@@ -980,7 +980,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.00023696403784056,
   },
-  mxn: {
+  MXN: {
     code: 'MXN',
     alphaCode: 'MXN',
     numericCode: '484',
@@ -989,7 +989,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.21551629143789,
   },
-  amd: {
+  AMD: {
     code: 'AMD',
     alphaCode: 'AMD',
     numericCode: '051',
@@ -998,7 +998,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.0090659850502727,
   },
-  kgs: {
+  KGS: {
     code: 'KGS',
     alphaCode: 'KGS',
     numericCode: '417',
@@ -1007,7 +1007,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.041184959214124,
   },
-  afn: {
+  AFN: {
     code: 'AFN',
     alphaCode: 'AFN',
     numericCode: '971',
@@ -1016,7 +1016,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.052433313773835,
   },
-  nad: {
+  NAD: {
     code: 'NAD',
     alphaCode: 'NAD',
     numericCode: '516',
@@ -1025,7 +1025,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.1971170277443,
   },
-  sdg: {
+  SDG: {
     code: 'SDG',
     alphaCode: 'SDG',
     numericCode: '938',
@@ -1034,7 +1034,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.0061181880080036,
   },
-  top: {
+  TOP: {
     code: 'TOP',
     alphaCode: 'TOP',
     numericCode: '776',
@@ -1043,7 +1043,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 1.5780425850661,
   },
-  vuv: {
+  VUV: {
     code: 'VUV',
     alphaCode: 'VUV',
     numericCode: '548',
@@ -1052,7 +1052,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.030869374756476,
   },
-  brl: {
+  BRL: {
     code: 'BRL',
     alphaCode: 'BRL',
     numericCode: '986',
@@ -1061,7 +1061,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.74855888717792,
   },
-  inr: {
+  INR: {
     code: 'INR',
     alphaCode: 'INR',
     numericCode: '356',
@@ -1070,7 +1070,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.044165011475492,
   },
-  npr: {
+  NPR: {
     code: 'NPR',
     alphaCode: 'NPR',
     numericCode: '524',
@@ -1079,7 +1079,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.027593390184951,
   },
-  xaf: {
+  XAF: {
     code: 'XAF',
     alphaCode: 'XAF',
     numericCode: '950',
@@ -1088,7 +1088,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.0061054479512635,
   },
-  tmt: {
+  TMT: {
     code: 'TMT',
     alphaCode: 'TMT',
     numericCode: '934',
@@ -1097,7 +1097,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 1.0487904546493,
   },
-  svc: {
+  SVC: {
     code: 'SVC',
     alphaCode: 'SVC',
     numericCode: '222',
@@ -1106,7 +1106,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.41968040705895,
   },
-  xcd: {
+  XCD: {
     code: 'XCD',
     alphaCode: 'XCD',
     numericCode: '951',
@@ -1115,7 +1115,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 1.3549260241956,
   },
-  pgk: {
+  PGK: {
     code: 'PGK',
     alphaCode: 'PGK',
     numericCode: '598',
@@ -1124,7 +1124,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.9845709725357,
   },
-  bwp: {
+  BWP: {
     code: 'BWP',
     alphaCode: 'BWP',
     numericCode: '072',
@@ -1133,7 +1133,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.27207312856569,
   },
-  dkk: {
+  DKK: {
     code: 'DKK',
     alphaCode: 'DKK',
     numericCode: '208',
@@ -1142,7 +1142,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.53881496400552,
   },
-  lkr: {
+  LKR: {
     code: 'LKR',
     alphaCode: 'LKR',
     numericCode: '144',
@@ -1151,7 +1151,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.011390982992406,
   },
-  tnd: {
+  TND: {
     code: 'TND',
     alphaCode: 'TND',
     numericCode: '788',
@@ -1160,7 +1160,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 1.19351522119,
   },
-  vnd: {
+  VND: {
     code: 'VND',
     alphaCode: 'VND',
     numericCode: '704',
@@ -1169,7 +1169,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.00015099668165133,
   },
-  gel: {
+  GEL: {
     code: 'GEL',
     alphaCode: 'GEL',
     numericCode: '981',
@@ -1178,7 +1178,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 1.3655665535331,
   },
-  mkd: {
+  MKD: {
     code: 'MKD',
     alphaCode: 'MKD',
     numericCode: '807',
@@ -1187,7 +1187,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.065388825812484,
   },
-  awg: {
+  AWG: {
     code: 'AWG',
     alphaCode: 'AWG',
     numericCode: '533',
@@ -1196,7 +1196,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 2.029807522366,
   },
-  zmw: {
+  ZMW: {
     code: 'ZMW',
     alphaCode: 'ZMW',
     numericCode: '967',
@@ -1205,7 +1205,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.1425364475644,
   },
-  khr: {
+  KHR: {
     code: 'KHR',
     alphaCode: 'KHR',
     numericCode: '116',
@@ -1214,7 +1214,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.00089984199756051,
   },
-  pkr: {
+  PKR: {
     code: 'PKR',
     alphaCode: 'PKR',
     numericCode: '586',
@@ -1223,7 +1223,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.013018413046543,
   },
-  bgn: {
+  BGN: {
     code: 'BGN',
     alphaCode: 'BGN',
     numericCode: '975',
@@ -1232,7 +1232,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 2.054568289999,
   },
-  rub: {
+  RUB: {
     code: 'RUB',
     alphaCode: 'RUB',
     numericCode: '643',
@@ -1241,7 +1241,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.040059979709265,
   },
-  cop: {
+  COP: {
     code: 'COP',
     alphaCode: 'COP',
     numericCode: '170',
@@ -1250,7 +1250,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.00094044516803119,
   },
-  bbd: {
+  BBD: {
     code: 'BBD',
     alphaCode: 'BBD',
     numericCode: '052',
@@ -1259,7 +1259,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 1.8195985311326,
   },
-  djf: {
+  DJF: {
     code: 'DJF',
     alphaCode: 'DJF',
     numericCode: '262',
@@ -1268,7 +1268,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.020633672034225,
   },
-  all: {
+  ALL: {
     code: 'ALL',
     alphaCode: 'ALL',
     numericCode: '008',
@@ -1277,7 +1277,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.038956889103403,
   },
-  scr: {
+  SCR: {
     code: 'SCR',
     alphaCode: 'SCR',
     numericCode: '690',
@@ -1286,7 +1286,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.26829305460051,
   },
-  sar: {
+  SAR: {
     code: 'SAR',
     alphaCode: 'SAR',
     numericCode: '682',
@@ -1295,7 +1295,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.98023136011837,
   },
-  pln: {
+  PLN: {
     code: 'PLN',
     alphaCode: 'PLN',
     numericCode: '985',
@@ -1304,7 +1304,7 @@ export const conversionRatesAED = {
     date: 'Wed, 3 Jan 2024 23:55:02 GMT',
     inverseRate: 0.92070487479123,
   },
-  kzt: {
+  KZT: {
     code: 'KZT',
     alphaCode: 'KZT',
     numericCode: '398',
