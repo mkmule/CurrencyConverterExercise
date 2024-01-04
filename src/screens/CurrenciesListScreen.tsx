@@ -38,7 +38,14 @@ const CurrenciesListScreen = ({ navigation }: any) => {
 
   return (
     <View style={styles.container}>
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
+      <View style={styles.containerAction}>
+        <Searchbar
+          placeholder="Search"
+          onChangeText={onChangeSearch}
+          value={searchQuery}
+        />
+      </View>
+      <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.containerList}>
         {currenciesFiltered.map(currency => (
           <List.Item
             onPress={() => onPressCurrency(currency)}
@@ -47,11 +54,6 @@ const CurrenciesListScreen = ({ navigation }: any) => {
           />
         ))}
       </ScrollView>
-      <Searchbar
-        placeholder="Search"
-        onChangeText={onChangeSearch}
-        value={searchQuery}
-      />
     </View>
   );
 };
@@ -60,6 +62,11 @@ const styles = StyleSheet.create({
   container: {
     height: '100%',
     display: 'flex',
+  },
+  containerList: {
+    flexGrow: 1,
+  },
+  containerAction: {
     padding: appTheme.spacing.base,
   },
 });
