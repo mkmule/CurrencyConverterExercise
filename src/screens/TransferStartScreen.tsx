@@ -6,7 +6,7 @@ import { appTheme } from '../providers/ThemeProvider.tsx';
 import ProcessingTimeInfo from '../components/ProcessingTimeInfo.tsx';
 import InputMoneyAmount from '../components/InputMoneyAmount.tsx';
 import { convert } from '../utils/conversion.ts';
-import { CurrencyAED, CurrencyUSD } from '../services/api.ts';
+import { ConversionRates, CurrencyAED, CurrencyUSD } from '../services/api.ts';
 
 const TransferStartScreen = ({ route, navigation }: any) => {
   const currencyFrom = CurrencyAED;
@@ -42,21 +42,22 @@ const TransferStartScreen = ({ route, navigation }: any) => {
 
     if (selectedCurrency) {
       setCurrencyTo(selectedCurrency);
+      setRate(ConversionRates[selectedCurrency.code].rate);
+      setRateInverse(ConversionRates[selectedCurrency.code].inverseRate);
+
+      setAmountTo(convert(amountFrom, ConversionRates[selectedCurrency.code].rate, selectedCurrency.decimalDigits));
     }
   }, [amountFrom, convertTo, route.params?.selectedCurrency]);
 
   return (
     <View style={styles.container}>
-      <Text variant="displaySmall" style={styles.title}>
-        How much do you want to transfer?
-      </Text>
-
       <View style={styles.containerInputForm}>
         <Text>
           Convert rate: {rate}
           {'\n'}
           Inverse rate: {rateInverse}
         </Text>
+
         <View>
           <Text>
             From: {currencyFrom.name} ({amountFrom})

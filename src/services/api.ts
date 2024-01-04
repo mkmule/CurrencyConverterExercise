@@ -36,8 +36,8 @@ export const CurrencyUSD = {
   name: 'US Dollar',
   rounding: 0,
 };
-export const Currencies = Object.values(currencies);
-export const ConversionRates = conversionRatesAED;
+export const Currencies: Currency[] = Object.values(currencies);
+export const ConversionRates: { [key: string]: ConversionRate } = conversionRatesAED;
 
 export const getCurrencies = (): Promise<{ [key: string]: Currency }> => {
   return new Promise(resolve => {

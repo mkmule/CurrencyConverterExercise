@@ -1,4 +1,13 @@
 export const conversionRatesAED = {
+  AED: {
+    code: 'AED',
+    alphaCode: 'AED',
+    numericCode: '-1',
+    name: 'UAE Dirhams',
+    rate: 1,
+    date: 'Wed, 3 Jan 2024 23:55:02 GMT',
+    inverseRate: 1,
+  },
   USD: {
     code: 'USD',
     alphaCode: 'USD',
