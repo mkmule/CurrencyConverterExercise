@@ -1,20 +1,20 @@
 import * as React from 'react';
 import { useCallback, useEffect, useState } from 'react';
-import { Button, Text } from 'react-native-paper';
+import { Button } from 'react-native-paper';
 import { StyleSheet, View } from 'react-native';
 import { appTheme } from '../providers/ThemeProvider.tsx';
 import ProcessingTimeInfo from '../components/ProcessingTimeInfo.tsx';
 import InputMoneyAmount from '../components/InputMoneyAmount.tsx';
 import { convert } from '../utils/conversion.ts';
-import { ConversionRates, CurrencyAED, CurrencyUSD } from '../services/api.ts';
+import { ConversionRateAED, ConversionRates, CurrencyAED, CurrencyUSD } from '../services/api.ts';
 import ButtonCurrencySelector from '../components/ButtonCurrencySelector.tsx';
+import FeesInfo from '../components/FeesInfo.tsx';
 
+const SERVICE_FEE = 0.03;
 const TransferStartScreen = ({ route, navigation }: any) => {
   const currencyFrom = CurrencyAED;
   const [currencyTo, setCurrencyTo] = useState(CurrencyUSD);
-
-  const [rate, setRate] = useState(0.27177700795811);
-  const [rateInverse, setRateInverse] = useState(3.6794871189182);
+  const [conversionRate, setConversionRate] = useState(ConversionRateAED);
 
   const [amountFrom, setAmountFrom] = useState(0);
   const [amountTo, setAmountTo] = useState(0);
@@ -22,16 +22,16 @@ const TransferStartScreen = ({ route, navigation }: any) => {
   const convertTo = useCallback(
     (from: number) => {
       setAmountFrom(from);
-      setAmountTo(convert(from, rate, currencyTo.decimalDigits));
+      setAmountTo(convert(from, conversionRate.rate, currencyTo.decimalDigits));
     },
-    [currencyTo.decimalDigits, rate],
+    [currencyTo.decimalDigits, conversionRate.rate],
   );
   const convertFrom = useCallback(
     (to: number) => {
       setAmountTo(to);
-      setAmountFrom(convert(to, rateInverse, currencyFrom.decimalDigits));
+      setAmountFrom(convert(to, conversionRate.inverseRate, currencyFrom.decimalDigits));
     },
-    [currencyFrom.decimalDigits, rateInverse],
+    [currencyFrom.decimalDigits, conversionRate.inverseRate],
   );
   const onOpenCurrencySelection = () => {
     navigation.navigate('CurrenciesListScreen');
@@ -45,8 +45,7 @@ const TransferStartScreen = ({ route, navigation }: any) => {
 
     if (selectedCurrency) {
       setCurrencyTo(selectedCurrency);
-      setRate(ConversionRates[selectedCurrency.code].rate);
-      setRateInverse(ConversionRates[selectedCurrency.code].inverseRate);
+      setConversionRate(ConversionRates[selectedCurrency.code]);
 
       setAmountTo(convert(amountFrom, ConversionRates[selectedCurrency.code].rate, selectedCurrency.decimalDigits));
     }
@@ -55,10 +54,6 @@ const TransferStartScreen = ({ route, navigation }: any) => {
   return (
     <View style={styles.container}>
       <View style={styles.containerInputForm}>
-        <Text>
-          Convert rate: {rate} / {rateInverse}
-        </Text>
-
         <View style={styles.containerInputMoneyAmount}>
           <View style={styles.containerInputMoneyAmountButton}>
             <ButtonCurrencySelector
@@ -73,7 +68,9 @@ const TransferStartScreen = ({ route, navigation }: any) => {
             onChangeAmount={convertTo}
           />
         </View>
-
+        <View style={styles.containerInputFormFees}>
+          <FeesInfo amount={amountFrom} fee={SERVICE_FEE} currency={currencyFrom} conversionRate={conversionRate} />
+        </View>
         <View style={styles.containerInputMoneyAmount}>
           <View style={styles.containerInputMoneyAmountButton}>
             <ButtonCurrencySelector
@@ -106,6 +103,7 @@ const TransferStartScreen = ({ route, navigation }: any) => {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: appTheme.colors.background,
     flex: 1,
     padding: appTheme.spacing.base,
   },
@@ -115,15 +113,17 @@ const styles = StyleSheet.create({
   containerInputMoneyAmount: {
     display: 'flex',
     flexDirection: 'row',
-    marginBottom: appTheme.spacing.base,
+  },
+  containerInputMoneyAmountInput: {
+    flexGrow: 1,
+  },
+  containerInputFormFees: {
+    paddingVertical: appTheme.spacing.base,
   },
   containerInputMoneyAmountButton: {
     marginRight: -appTheme.spacing.base,
     width: 110,
     zIndex: 1,
-  },
-  containerInputMoneyAmountInput: {
-    flexGrow: 1,
   },
   containerProcessingTime: {
     display: 'flex',
