@@ -5,8 +5,8 @@ import { appTheme } from '../providers/ThemeProvider.tsx';
 import { ConversionRate, Currency } from '../types/finance.ts';
 import { CurrenciesMap } from '../services/api.ts';
 import { getNumberFormatSettings } from 'react-native-localize';
-import { formatCurrencyNumber, round } from '../utils/currency.ts';
-import { calculateFees, DEFAULT_FEES } from '../utils/conversion.ts';
+import { formatCurrencyNumber } from '../utils/currency.ts';
+import { calculateFees, calculateSendAmount, DEFAULT_FEES } from '../utils/conversion.ts';
 
 interface Props {
   amount: number;
@@ -19,15 +19,12 @@ const FeesInfo = ({ amount, currency, conversionRate }: Props): React.JSX.Elemen
   const formatCurrencyNum = useMemo(() => {
     return (val: number) => formatCurrencyNumber(val, currency.decimalDigits, numberFormatOptions);
   }, [currency.decimalDigits, numberFormatOptions])
+
   const [expanded, setExpanded] = useState(true);
   const onPressAccordion = () => setExpanded(!expanded);
 
-  const { serviceFee, vatFee } = useMemo(() => {
-    return calculateFees(amount, currency.decimalDigits)
-  }, [amount])
-  const sendingAmount = useMemo<number>(() => {
-    return round(amount - serviceFee - vatFee, currency.decimalDigits);
-  }, [serviceFee, vatFee]);
+  const fees = useMemo(() => calculateFees(amount, currency.decimalDigits), [amount])
+  const sendingAmount = useMemo<number>(() => calculateSendAmount(amount, currency.decimalDigits, fees), [fees]);
 
   const currencyTo = useMemo(() => {
     return CurrenciesMap[conversionRate.code] as Currency;
@@ -50,12 +47,12 @@ const FeesInfo = ({ amount, currency, conversionRate }: Props): React.JSX.Elemen
                    title={
                      <Text variant="bodySmall" style={styles.textListItemTitle}>Service fee
                        ({DEFAULT_FEES.service * 100}%):
-                       ≈{formatCurrencyNum(serviceFee)} {currency.symbol}</Text>
+                       ≈{formatCurrencyNum(fees.serviceFee)} {currency.symbol}</Text>
                    } />
         <List.Item style={styles.containerListItem}
                    title={
                      <Text variant="bodySmall" style={styles.textListItemTitle}>VAT ({DEFAULT_FEES.vat * 100}%):
-                       ≈{formatCurrencyNum(vatFee)} {currency.symbol}</Text>
+                       ≈{formatCurrencyNum(fees.vatFee)} {currency.symbol}</Text>
                    } />
         <Divider />
         <List.Item style={styles.containerListItem}

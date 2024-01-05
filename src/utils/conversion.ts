@@ -25,3 +25,9 @@ export const calculateFees = (amount: number, decimalDigits: number, options: Fe
 
   return { serviceFee, vatFee }
 }
+
+export const calculateSendAmount = (amount: number, decimalDigits: number, fees: Fees): number => {
+  const { serviceFee, vatFee } = fees;
+  return round(amount - serviceFee - vatFee, decimalDigits);
+}
+
