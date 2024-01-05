@@ -92,7 +92,7 @@ const TransferStartScreen = ({ route, navigation }: any) => {
       <View style={styles.containerProcessingTime}>
         <ProcessingTimeInfo displayTime={'1 Hour'} />
       </View>
-      <View>
+      <View style={styles.containerSubmitAction}>
         <Button icon="bank-transfer-out" mode="contained" onPress={submitForm}>
           Start transfer
         </Button>
@@ -105,7 +105,8 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: appTheme.colors.background,
     flex: 1,
-    padding: appTheme.spacing.base,
+    paddingHorizontal: appTheme.spacing.base,
+    paddingVertical: appTheme.spacing.base * 2,
   },
   containerInputForm: {
     // width: '100%',
@@ -118,7 +119,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   containerInputFormFees: {
-    paddingVertical: appTheme.spacing.base,
+    marginVertical: appTheme.spacing.base,
   },
   containerInputMoneyAmountButton: {
     marginRight: -appTheme.spacing.base,
@@ -128,11 +129,12 @@ const styles = StyleSheet.create({
   containerProcessingTime: {
     display: 'flex',
     justifyContent: 'center',
-    flexGrow: 1,
+    marginVertical: appTheme.spacing.base * 2,
   },
   containerSubmitAction: {
     display: 'flex',
-    justifyContent: 'center',
+    flexGrow: 1,
+    justifyContent: 'flex-end',
   },
   title: {
     textAlign: 'center',

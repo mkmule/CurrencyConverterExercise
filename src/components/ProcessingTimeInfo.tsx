@@ -16,10 +16,10 @@ const ProcessingTimeInfo = ({ displayTime }: Props): React.JSX.Element => {
       <View style={styles.containerWithIcon}>
         <MaterialCommunityIcons
           name="lightning-bolt"
-          size={30}
+          size={28}
           color={theme.colors.onBackground}
         />
-        <Text variant="bodyMedium">Processing time - {displayTime}</Text>
+        <Text variant="bodyMedium">Processing time ~{displayTime}</Text>
       </View>
       <Text variant="bodySmall" style={styles.textSubtitle}>
         *Normal working hours & public holidays apply
