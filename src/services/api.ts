@@ -25,6 +25,7 @@ export const CurrencyAED = {
   decimalDigits: 2,
   name: 'United Arab Emirates Dirham',
   rounding: 0,
+  emoji: "🇦🇪",
 };
 
 export const CurrencyUSD = {
@@ -35,6 +36,7 @@ export const CurrencyUSD = {
   decimalDigits: 2,
   name: 'US Dollar',
   rounding: 0,
+  emoji: "🇺🇸",
 };
 export const Currencies: Currency[] = Object.values(currencies);
 export const ConversionRates: { [key: string]: ConversionRate } = conversionRatesAED;

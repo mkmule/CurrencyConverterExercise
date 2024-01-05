@@ -8,13 +8,7 @@ interface Props {
   decimals: number;
 }
 
-// TODO: Merge jsons into a single one and read as configuration
-
-const InputMoneyAmount = ({
-  value,
-  decimals,
-  onChangeAmount,
-}: Props): React.JSX.Element => {
+const InputMoneyAmount = ({ value, decimals, onChangeAmount }: Props): React.JSX.Element => {
   // const [amount, setAmount] = React.useState<string>('');
   const placeholder = useMemo(() => {
     return Number(0).toLocaleString('en', {
@@ -44,15 +38,11 @@ const InputMoneyAmount = ({
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    backgroundColor: 'red',
-    display: 'flex',
-    justifyContent: 'center',
-    width: '100%',
+    flexGrow: 1,
   },
   input: {
+    borderRadius: 100,
     textAlign: 'right',
-    width: '100%',
   },
 });
 

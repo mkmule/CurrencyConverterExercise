@@ -7,6 +7,7 @@ import ProcessingTimeInfo from '../components/ProcessingTimeInfo.tsx';
 import InputMoneyAmount from '../components/InputMoneyAmount.tsx';
 import { convert } from '../utils/conversion.ts';
 import { ConversionRates, CurrencyAED, CurrencyUSD } from '../services/api.ts';
+import ButtonCurrencySelector from '../components/ButtonCurrencySelector.tsx';
 
 const TransferStartScreen = ({ route, navigation }: any) => {
   const currencyFrom = CurrencyAED;
@@ -32,9 +33,11 @@ const TransferStartScreen = ({ route, navigation }: any) => {
     },
     [currencyFrom.decimalDigits, rateInverse],
   );
+  const onOpenCurrencySelection = () => {
+    navigation.navigate('CurrenciesListScreen');
+  }
   const submitForm = () => {
     console.log('Pressed: submitForm');
-    navigation.navigate('CurrenciesListScreen');
   };
 
   useEffect(() => {
@@ -53,30 +56,39 @@ const TransferStartScreen = ({ route, navigation }: any) => {
     <View style={styles.container}>
       <View style={styles.containerInputForm}>
         <Text>
-          Convert rate: {rate}
-          {'\n'}
-          Inverse rate: {rateInverse}
+          Convert rate: {rate} / {rateInverse}
         </Text>
 
-        <View>
-          <Text>
-            From: {currencyFrom.name} ({amountFrom})
-          </Text>
+        <View style={styles.containerInputMoneyAmount}>
+          <View style={styles.containerInputMoneyAmountButton}>
+            <ButtonCurrencySelector
+              title={'You send exactly'}
+              currency={currencyFrom}
+              disabled
+            />
+          </View>
           <InputMoneyAmount
             decimals={2}
             value={amountFrom}
             onChangeAmount={convertTo}
           />
         </View>
-        <View>
-          <Text>
-            To: {currencyTo.name} ({amountTo})
-          </Text>
-          <InputMoneyAmount
-            decimals={2}
-            value={amountTo}
-            onChangeAmount={convertFrom}
-          />
+
+        <View style={styles.containerInputMoneyAmount}>
+          <View style={styles.containerInputMoneyAmountButton}>
+            <ButtonCurrencySelector
+              title={'Recipient gets'}
+              currency={currencyTo}
+              onButtonPressed={onOpenCurrencySelection}
+            />
+          </View>
+          <View style={styles.containerInputMoneyAmountInput}>
+            <InputMoneyAmount
+              decimals={2}
+              value={amountTo}
+              onChangeAmount={convertFrom}
+            />
+          </View>
         </View>
       </View>
 
@@ -94,12 +106,24 @@ const TransferStartScreen = ({ route, navigation }: any) => {
 
 const styles = StyleSheet.create({
   container: {
-    height: '100%',
-    display: 'flex',
+    flex: 1,
     padding: appTheme.spacing.base,
   },
   containerInputForm: {
-    width: '100%',
+    // width: '100%',
+  },
+  containerInputMoneyAmount: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginBottom: appTheme.spacing.base,
+  },
+  containerInputMoneyAmountButton: {
+    marginRight: -appTheme.spacing.base,
+    width: 110,
+    zIndex: 1,
+  },
+  containerInputMoneyAmountInput: {
+    flexGrow: 1,
   },
   containerProcessingTime: {
     display: 'flex',
