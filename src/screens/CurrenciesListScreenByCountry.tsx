@@ -5,10 +5,12 @@ import { appTheme } from '../providers/ThemeProvider.tsx';
 import { List, Searchbar, Text } from 'react-native-paper';
 import { Countries } from '../services/api.ts';
 import { Country } from '../types/finance.ts';
+import { useDebounce } from '../hooks/useDebounce.tsx';
 
 const CurrenciesListScreenByCountry = ({ navigation }: any) => {
   const [countriesFiltered, setCountriesFiltered] = useState(Countries);
   const [searchQuery, setSearchQuery] = React.useState('');
+  const debouncedSearchQuery = useDebounce(searchQuery, 100);
 
   const onChangeSearch = (query: string) => setSearchQuery(query);
   const onPressCurrency = (country: Country) => {
@@ -18,13 +20,13 @@ const CurrenciesListScreenByCountry = ({ navigation }: any) => {
   };
 
   useEffect(() => {
-    if (searchQuery) {
+    if (debouncedSearchQuery) {
       // TODO: Extract and write tests
       setCountriesFiltered(
         Countries.filter(country => {
           return [...Object.values(country), ...Object.values(country.currency)].some(property => {
             if (typeof property === 'string') {
-              return property.toUpperCase().includes(searchQuery.toUpperCase());
+              return property.toUpperCase().includes(debouncedSearchQuery.toUpperCase());
             }
           });
         }),
@@ -34,7 +36,7 @@ const CurrenciesListScreenByCountry = ({ navigation }: any) => {
     }
 
     setCountriesFiltered(Countries);
-  }, [searchQuery]);
+  }, [debouncedSearchQuery]);
 
   return (
     <View style={styles.container}>
