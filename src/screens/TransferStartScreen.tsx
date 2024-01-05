@@ -59,13 +59,16 @@ const TransferStartScreen = ({ route, navigation }: any) => {
     if (selectedCurrency) {
       const newCurrency = selectedCurrency;
       const newRate = ConversionRates[selectedCurrency.code];
+      const recoveredAmountFrom = amountFromRef.current?.getDisplayValueNum?.();
+      const feesNew = calculateFees(recoveredAmountFrom, currencyFrom.decimalDigits)
+      const sendingAmountNew = calculateSendAmount(recoveredAmountFrom, currencyFrom.decimalDigits, feesNew);
 
-      setAmountFrom(amountFromRef.current?.getDisplayValue?.());
-      setAmountTo(convert(amountFrom, newRate.rate, newCurrency.decimalDigits));
+      setAmountFrom(recoveredAmountFrom);
+      setAmountTo(convert(sendingAmountNew, newRate.rate, newCurrency.decimalDigits));
       setCurrencyTo(newCurrency);
       setConversionRate(newRate);
     }
-  }, [amountFrom, convertTo, route.params?.selectedCurrency]);
+  }, [route.params?.selectedCurrency]);
 
   return (
     <View style={styles.container}>

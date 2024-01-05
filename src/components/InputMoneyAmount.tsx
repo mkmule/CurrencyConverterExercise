@@ -77,7 +77,7 @@ const InputMoneyAmount = forwardRef(({ value, decimals, onChangeAmount }: Props,
   }, [value]);
 
   useImperativeHandle(ref, () => ({
-    getDisplayValue() {
+    getDisplayValueNum() {
       return parseFormattedNum(displayValue) || 0;
     },
   }));
