@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { forwardRef, useEffect, useImperativeHandle, useMemo, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import { getNumberFormatSettings } from 'react-native-localize';
@@ -11,7 +11,7 @@ interface Props {
   decimals: number;
 }
 
-const InputMoneyAmount = ({ value, decimals, onChangeAmount }: Props): React.JSX.Element => {
+const InputMoneyAmount = forwardRef(({ value, decimals, onChangeAmount }: Props, ref: any): React.JSX.Element => {
   const [displayValue, setDisplayValue] = useState('');
   const numberFormatOptions = useMemo(() => getNumberFormatSettings(), []);
   const formatCurrencyNum = useMemo(() => {
@@ -76,6 +76,12 @@ const InputMoneyAmount = ({ value, decimals, onChangeAmount }: Props): React.JSX
     setDisplayValue(formatCurrencyNum(value));
   }, [value]);
 
+  useImperativeHandle(ref, () => ({
+    getDisplayValue() {
+      return parseFormattedNum(displayValue) || 0;
+    },
+  }));
+
   return (
     <View style={styles.container}>
       <TextInput
@@ -84,13 +90,13 @@ const InputMoneyAmount = ({ value, decimals, onChangeAmount }: Props): React.JSX
         onBlur={onBlur}
         onChangeText={onChange}
         placeholder={placeholder}
-        selectTextOnFocus={true}
+        ref={ref}
         style={styles.input}
         value={displayValue}
       />
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {

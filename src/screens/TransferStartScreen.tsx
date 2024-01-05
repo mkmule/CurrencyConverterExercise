@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Button } from 'react-native-paper';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TextInput, View } from 'react-native';
 import { appTheme } from '../providers/ThemeProvider.tsx';
 import ProcessingTimeInfo from '../components/ProcessingTimeInfo.tsx';
 import InputMoneyAmount from '../components/InputMoneyAmount.tsx';
@@ -15,6 +15,7 @@ const TransferStartScreen = ({ route, navigation }: any) => {
   const [currencyTo, setCurrencyTo] = useState(CurrencyUSD);
   const [conversionRate, setConversionRate] = useState(ConversionRateAED);
 
+  const amountFromRef = useRef<TextInput | any>(null);
   const [amountFrom, setAmountFrom] = useState(0);
   const [amountTo, setAmountTo] = useState(0);
 
@@ -56,10 +57,13 @@ const TransferStartScreen = ({ route, navigation }: any) => {
     const selectedCurrency = route.params?.selectedCurrency;
 
     if (selectedCurrency) {
-      setCurrencyTo(selectedCurrency);
-      setConversionRate(ConversionRates[selectedCurrency.code]);
+      const newCurrency = selectedCurrency;
+      const newRate = ConversionRates[selectedCurrency.code];
 
-      setAmountTo(convert(amountFrom, ConversionRates[selectedCurrency.code].rate, selectedCurrency.decimalDigits));
+      setAmountFrom(amountFromRef.current?.getDisplayValue?.());
+      setAmountTo(convert(amountFrom, newRate.rate, newCurrency.decimalDigits));
+      setCurrencyTo(newCurrency);
+      setConversionRate(newRate);
     }
   }, [amountFrom, convertTo, route.params?.selectedCurrency]);
 
@@ -76,8 +80,9 @@ const TransferStartScreen = ({ route, navigation }: any) => {
           </View>
           <InputMoneyAmount
             decimals={2}
-            value={amountFrom}
             onChangeAmount={convertTo}
+            ref={amountFromRef}
+            value={amountFrom}
           />
         </View>
         <View style={styles.containerInputFormFees}>
