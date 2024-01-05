@@ -20,7 +20,7 @@ export interface Fees {
 
 export const DEFAULT_FEES: FeesOptions = {
   service: 0.05,
-  vat: 0.03,
+  vat: 0.05,
 };
 export const calculateFees = (
   amount: number,

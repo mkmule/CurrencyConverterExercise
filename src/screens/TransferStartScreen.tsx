@@ -16,7 +16,6 @@ import {
   ConversionRateAED,
   ConversionRates,
   CurrencyAED,
-  CurrencyUSD,
 } from '../services/api.ts';
 import ButtonCurrencySelector from '../components/ButtonCurrencySelector.tsx';
 import FeesInfo from '../components/FeesInfo.tsx';
@@ -57,11 +56,7 @@ const TransferStartScreen = ({ route, navigation }: any) => {
   );
   const convertFrom = useCallback(
     (to: number) => {
-      const equivalentAmount = convert(
-        to,
-        conversionRate.inverseRate,
-        currencyFrom.decimalDigits,
-      );
+      const equivalentAmount = convert(to, conversionRate.inverseRate);
       const estimatedAmountFrom =
         equivalentAmount /
         (1 - DEFAULT_FEES.service - DEFAULT_FEES.service * DEFAULT_FEES.vat);
@@ -71,8 +66,10 @@ const TransferStartScreen = ({ route, navigation }: any) => {
       );
 
       setFees(feesNew);
-      setSendingAmount(to);
-      setAmountFrom(to + feesNew.serviceFee + feesNew.vatFee);
+      setSendingAmount(
+        estimatedAmountFrom - feesNew.serviceFee - feesNew.vatFee,
+      );
+      setAmountFrom(estimatedAmountFrom);
     },
     [currencyFrom.decimalDigits, conversionRate.inverseRate],
   );
