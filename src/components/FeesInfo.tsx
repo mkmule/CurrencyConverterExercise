@@ -31,15 +31,18 @@ const FeesInfo = ({ amount, fee, currency, conversionRate }: Props): React.JSX.E
         title={
           <View style={styles.containerAccordionTitle}>
             <Text>1 {currency.code} ≈ {(conversionRate.rate).toFixed(currencyTo.decimalDigits)} {currencyTo.code}</Text>
-            <Text>Fees</Text>
+            <Text variant="labelLarge">Fees</Text>
           </View>
         }
       >
         <List.Item style={styles.containerListItem}
-                   title={<Text variant="bodySmall" style={styles.textListItemTitle}>Service fee:
-                     ≈${serviceFee}</Text>} />
+                   title={
+                     <Text variant="bodySmall" style={styles.textListItemTitle}>Service fee: ≈{serviceFee} {currency.symbol}</Text>
+                   } />
         <List.Item style={styles.containerListItem}
-                   title={<Text variant="bodySmall" style={styles.textListItemTitle}>VAT (5%): ≈${taxFee}</Text>} />
+                   title={
+                     <Text variant="bodySmall" style={styles.textListItemTitle}>VAT (5%): ≈{taxFee} {currency.symbol}</Text>
+                   } />
       </List.Accordion>
     </View>
   );
