@@ -5,7 +5,7 @@ import { StyleSheet, TextInput, View } from 'react-native';
 import { appTheme } from '../providers/ThemeProvider.tsx';
 import ProcessingTimeInfo from '../components/ProcessingTimeInfo.tsx';
 import InputMoneyAmount from '../components/InputMoneyAmount.tsx';
-import { calculateFees, calculateSendAmount, convert, Fees } from '../utils/conversion.ts';
+import { calculateFees, calculateSendAmount, convert, DEFAULT_FEES, Fees } from '../utils/conversion.ts';
 import { ConversionRateAED, ConversionRates, CurrencyAED, CurrencyUSD } from '../services/api.ts';
 import ButtonCurrencySelector from '../components/ButtonCurrencySelector.tsx';
 import FeesInfo from '../components/FeesInfo.tsx';
@@ -36,13 +36,13 @@ const TransferStartScreen = ({ route, navigation }: any) => {
   );
   const convertFrom = useCallback(
     (to: number) => {
-      const amountFromNew = convert(to, conversionRate.inverseRate, currencyFrom.decimalDigits);
+      const amountToEquivalent = convert(to, conversionRate.inverseRate, currencyFrom.decimalDigits);
+      const amountFromNew = amountToEquivalent / (1 - DEFAULT_FEES.service - (DEFAULT_FEES.service * DEFAULT_FEES.vat));
       const feesNew = calculateFees(amountFromNew, currencyFrom.decimalDigits)
-      const sendingAmountNew = calculateSendAmount(amountFromNew, currencyFrom.decimalDigits, feesNew);
 
       setFees(feesNew);
-      setSendingAmount(sendingAmountNew);
-      setAmountFrom(sendingAmountNew);
+      setSendingAmount(to);
+      setAmountFrom(amountFromNew);
     },
     [currencyFrom.decimalDigits, conversionRate.inverseRate],
   );
