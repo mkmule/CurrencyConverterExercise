@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Button } from 'react-native-paper';
 import { StyleSheet, View } from 'react-native';
 import { appTheme } from '../providers/ThemeProvider.tsx';
 import ProcessingTimeInfo from '../components/ProcessingTimeInfo.tsx';
 import InputMoneyAmount from '../components/InputMoneyAmount.tsx';
-import { convert } from '../utils/conversion.ts';
+import { calculateFees, calculateSendAmount, convert } from '../utils/conversion.ts';
 import { ConversionRateAED, ConversionRates, CurrencyAED, CurrencyUSD } from '../services/api.ts';
 import ButtonCurrencySelector from '../components/ButtonCurrencySelector.tsx';
 import FeesInfo from '../components/FeesInfo.tsx';
@@ -17,6 +17,9 @@ const TransferStartScreen = ({ route, navigation }: any) => {
 
   const [amountFrom, setAmountFrom] = useState(0);
   const [amountTo, setAmountTo] = useState(0);
+
+  const fees = useMemo(() => calculateFees(amountFrom, currencyFrom.decimalDigits), [amountFrom])
+  const sendingAmount = useMemo<number>(() => calculateSendAmount(amountFrom, currencyFrom.decimalDigits, fees), [fees]);
 
   const convertTo = useCallback(
     (from: number) => {
@@ -32,11 +35,12 @@ const TransferStartScreen = ({ route, navigation }: any) => {
     },
     [currencyFrom.decimalDigits, conversionRate.inverseRate],
   );
+
   const onOpenCurrencySelection = () => {
     navigation.navigate('CurrenciesListScreen');
   }
-  const submitForm = () => {
-    console.log('Pressed: submitForm');
+  const onStartTransfer = () => {
+    console.log('Pressed: onStartTransfer');
   };
 
   useEffect(() => {
@@ -68,7 +72,12 @@ const TransferStartScreen = ({ route, navigation }: any) => {
           />
         </View>
         <View style={styles.containerInputFormFees}>
-          <FeesInfo amount={amountFrom} currency={currencyFrom} conversionRate={conversionRate} />
+          <FeesInfo
+            conversionRate={conversionRate}
+            currency={currencyFrom}
+            fees={fees}
+            sendingAmount={sendingAmount}
+          />
         </View>
         <View style={styles.containerInputMoneyAmount}>
           <View style={styles.containerInputMoneyAmountButton}>
@@ -92,7 +101,7 @@ const TransferStartScreen = ({ route, navigation }: any) => {
         <ProcessingTimeInfo displayTime={'1 Hour'} />
       </View>
       <View style={styles.containerSubmitAction}>
-        <Button icon="bank-transfer-out" mode="contained" onPress={submitForm}>
+        <Button icon="bank-transfer-out" mode="contained" onPress={onStartTransfer}>
           Start transfer
         </Button>
       </View>

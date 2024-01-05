@@ -9,7 +9,7 @@ interface FeesOptions {
   vat: number;
 }
 
-interface Fees {
+export interface Fees {
   serviceFee: number;
   vatFee: number;
 }

@@ -6,15 +6,16 @@ import { ConversionRate, Currency } from '../types/finance.ts';
 import { CurrenciesMap } from '../services/api.ts';
 import { getNumberFormatSettings } from 'react-native-localize';
 import { formatCurrencyNumber } from '../utils/currency.ts';
-import { calculateFees, calculateSendAmount, DEFAULT_FEES } from '../utils/conversion.ts';
+import { DEFAULT_FEES, Fees } from '../utils/conversion.ts';
 
 interface Props {
-  amount: number;
-  currency: Currency;
   conversionRate: ConversionRate;
+  currency: Currency;
+  fees: Fees;
+  sendingAmount: number;
 }
 
-const FeesInfo = ({ amount, currency, conversionRate }: Props): React.JSX.Element => {
+const FeesInfo = ({ fees, sendingAmount, currency, conversionRate }: Props): React.JSX.Element => {
   const numberFormatOptions = useMemo(() => getNumberFormatSettings(), []);
   const formatCurrencyNum = useMemo(() => {
     return (val: number) => formatCurrencyNumber(val, currency.decimalDigits, numberFormatOptions);
@@ -22,9 +23,6 @@ const FeesInfo = ({ amount, currency, conversionRate }: Props): React.JSX.Elemen
 
   const [expanded, setExpanded] = useState(true);
   const onPressAccordion = () => setExpanded(!expanded);
-
-  const fees = useMemo(() => calculateFees(amount, currency.decimalDigits), [amount])
-  const sendingAmount = useMemo<number>(() => calculateSendAmount(amount, currency.decimalDigits, fees), [fees]);
 
   const currencyTo = useMemo(() => {
     return CurrenciesMap[conversionRate.code] as Currency;
