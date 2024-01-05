@@ -23,7 +23,6 @@ const InputMoneyAmount = ({ value, decimals, onChangeAmount }: Props): React.JSX
   const placeholder = useMemo(() => {
     return formatCurrencyNum(0);
   }, [decimals]);
-
   const onChange = (val: string) => {
     if (!val?.length) {
       onChangeAmount(0);
@@ -69,19 +68,25 @@ const InputMoneyAmount = ({ value, decimals, onChangeAmount }: Props): React.JSX
   }
 
   useEffect(() => {
+    if (value === 0) {
+      setDisplayValue('');
+      return;
+    }
+
     setDisplayValue(formatCurrencyNum(value));
   }, [value]);
 
   return (
     <View style={styles.container}>
       <TextInput
-        style={styles.input}
-        placeholder={placeholder}
         keyboardType="numeric"
         mode="outlined"
-        value={displayValue}
-        onChangeText={onChange}
         onBlur={onBlur}
+        onChangeText={onChange}
+        placeholder={placeholder}
+        selectTextOnFocus={true}
+        style={styles.input}
+        value={displayValue}
       />
     </View>
   );
