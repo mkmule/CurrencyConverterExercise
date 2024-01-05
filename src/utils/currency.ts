@@ -61,8 +61,8 @@ export const roundCeil = (num: number, decimals: number = 0): number => {
 
   return Math.ceil(num * decimalMultiplier) / decimalMultiplier;
 }
-export const roundFloor = (num: number, decimals: number = 0): number => {
+export const round = (num: number, decimals: number = 0): number => {
   const decimalMultiplier = Number(`1${'0'.repeat(decimals)}`);
 
-  return Math.floor(num * decimalMultiplier) / decimalMultiplier;
+  return Math.round(num * decimalMultiplier) / decimalMultiplier;
 }

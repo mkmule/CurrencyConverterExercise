@@ -5,7 +5,7 @@ import { appTheme } from '../providers/ThemeProvider.tsx';
 import { ConversionRate, Currency } from '../types/finance.ts';
 import { CurrenciesMap } from '../services/api.ts';
 import { getNumberFormatSettings } from 'react-native-localize';
-import { formatCurrencyNumber, roundCeil, roundFloor } from '../utils/currency.ts';
+import { formatCurrencyNumber, roundCeil, round } from '../utils/currency.ts';
 
 interface Props {
   amount: number;
@@ -29,7 +29,7 @@ const FeesInfo = ({ amount, fee, currency, conversionRate }: Props): React.JSX.E
     return roundCeil(0.05 * serviceFee, currency.decimalDigits);
   }, [serviceFee]);
   const sendingAmount = useMemo<number>(() => {
-    return roundFloor(amount - serviceFee - taxFee, currency.decimalDigits);
+    return round(amount - serviceFee - taxFee, currency.decimalDigits);
   }, [serviceFee, taxFee]);
 
   const currencyTo = useMemo(() => {
