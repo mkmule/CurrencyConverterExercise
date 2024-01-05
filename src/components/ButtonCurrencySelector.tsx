@@ -15,10 +15,11 @@ interface Props {
 const ButtonCurrencySelector = ({ title, disabled, currency, onButtonPressed }: Props): React.JSX.Element => {
   return (
     <Button
-      mode="text"
+      mode="contained"
       disabled={disabled}
       onPress={onButtonPressed}
       style={styles.container}
+      labelStyle={{ marginHorizontal: 0 }}
     >
       <View>
         {title && <Text style={styles.textTitle}>{title}</Text>}
