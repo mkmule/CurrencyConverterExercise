@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Button, Text } from 'react-native-paper';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Currency } from '../types/finance.ts';
 import { appTheme } from '../providers/ThemeProvider.tsx';
 
@@ -24,7 +25,13 @@ const ButtonCurrencySelector = ({ title, disabled, currency, onButtonPressed }: 
         <View style={styles.containerCurrency}>
           {currency.emoji && <Text style={styles.textEmoji}>{currency.emoji}</Text>}
           <Text style={styles.textCurrency}>{currency.code}</Text>
-          {onButtonPressed && <Text style={styles.textChevron}> ⌄</Text>}
+          {onButtonPressed &&
+            <MaterialCommunityIcons
+              style={styles.containerChevron}
+              name="chevron-down"
+              size={20}
+              color={appTheme.colors.surface}
+            />}
         </View>
       </View>
     </Button>
@@ -55,10 +62,8 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 16,
   },
-  textChevron: {
-    marginBottom: appTheme.spacing.base,
-    color: 'white',
-    fontSize: 22,
+  containerChevron: {
+    marginBottom: appTheme.spacing.base / 2,
   },
 });
 
