@@ -1,5 +1,5 @@
-import { ConversionRate, Currency } from '../types/finance.ts';
-import { conversionRatesAED, currencies } from './api.stubs.ts';
+import { ConversionRate, Country, Currency } from '../types/finance.ts';
+import { conversionRatesAED, currencies, countries } from './api.stubs.ts';
 
 export const getConversionRates = (
   currencyCode: string,
@@ -38,6 +38,8 @@ export const CurrencyUSD = {
 };
 export const Currencies: Currency[] = Object.values(currencies);
 export const ConversionRates: { [key: string]: ConversionRate } = conversionRatesAED;
+
+export const Countries: Country[] = countries as unknown as Country[];
 
 export const getCurrencies = (): Promise<{ [key: string]: Currency }> => {
   return new Promise(resolve => {

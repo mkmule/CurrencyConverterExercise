@@ -6,6 +6,7 @@ export interface Currency {
   rounding: number;
   symbol: string;
   symbolNative: string;
+  emoji?: string; // Optional image (flag of selected country)
 }
 
 export interface ConversionRate {
@@ -17,3 +18,12 @@ export interface ConversionRate {
   numericCode: string;
   rate: number;
 }
+
+export interface Country {
+  code: string;
+  currency: Currency;
+  emoji: string;
+  name: string;
+  unicode: string;
+}
+

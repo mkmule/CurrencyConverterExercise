@@ -6,6 +6,7 @@ import CurrenciesListScreen from './screens/CurrenciesListScreen.tsx';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import TransferStartScreen from './screens/TransferStartScreen.tsx';
 import { Text } from 'react-native-paper';
+import CurrenciesListScreenByCountry from './screens/CurrenciesListScreenByCountry.tsx';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,7 +34,7 @@ const App = (): React.JSX.Element => {
             <Stack.Screen
               name="CurrenciesListScreen"
               options={{ title: 'Select Currency' }}
-              component={CurrenciesListScreen}
+              component={CurrenciesListScreenByCountry}
             />
           </Stack.Navigator>
         </SafeAreaView>
