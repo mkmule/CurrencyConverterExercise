@@ -16,10 +16,10 @@ const InputMoneyAmount = ({ value, decimals, onChangeAmount }: Props): React.JSX
   const numberFormatOptions = useMemo(() => getNumberFormatSettings(), []);
   const formatCurrencyNum = useMemo(() => {
     return (val: number) => formatCurrencyNumber(val, decimals, numberFormatOptions);
-  }, [decimals, numberFormatOptions])
+  }, [decimals, numberFormatOptions]);
   const parseFormattedNum = useMemo(() => {
     return (val: string) => parseFormattedNumber(val, decimals, numberFormatOptions);
-  }, [decimals, numberFormatOptions])
+  }, [decimals, numberFormatOptions]);
   const placeholder = useMemo(() => {
     return formatCurrencyNum(0);
   }, [decimals]);

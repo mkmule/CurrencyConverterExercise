@@ -1,9 +1,11 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { List, Text } from 'react-native-paper';
+import { Divider, List, Text } from 'react-native-paper';
 import { appTheme } from '../providers/ThemeProvider.tsx';
 import { ConversionRate, Currency } from '../types/finance.ts';
 import { CurrenciesMap } from '../services/api.ts';
+import { getNumberFormatSettings } from 'react-native-localize';
+import { formatCurrencyNumber, roundCeil, roundFloor } from '../utils/currency.ts';
 
 interface Props {
   amount: number;
@@ -13,12 +15,22 @@ interface Props {
 }
 
 const FeesInfo = ({ amount, fee, currency, conversionRate }: Props): React.JSX.Element => {
-  const serviceFee = useMemo<string>(() => {
-    return (amount * fee).toFixed(currency.decimalDigits);
+  const numberFormatOptions = useMemo(() => getNumberFormatSettings(), []);
+  const formatCurrencyNum = useMemo(() => {
+    return (val: number) => formatCurrencyNumber(val, currency.decimalDigits, numberFormatOptions);
+  }, [currency.decimalDigits, numberFormatOptions])
+  const [expanded, setExpanded] = useState(true);
+  const onPressAccordion = () => setExpanded(!expanded);
+
+  const serviceFee = useMemo<number>(() => {
+    return roundCeil(amount * fee, currency.decimalDigits);
   }, [amount, fee]);
-  const taxFee = useMemo(() => {
-    return (0.05 * Number(serviceFee)).toFixed(currency.decimalDigits);
+  const taxFee = useMemo<number>(() => {
+    return roundCeil(0.05 * serviceFee, currency.decimalDigits);
   }, [serviceFee]);
+  const sendingAmount = useMemo<number>(() => {
+    return roundFloor(amount - serviceFee - taxFee, currency.decimalDigits);
+  }, [serviceFee, taxFee]);
 
   const currencyTo = useMemo(() => {
     return CurrenciesMap[conversionRate.code] as Currency;
@@ -27,6 +39,8 @@ const FeesInfo = ({ amount, fee, currency, conversionRate }: Props): React.JSX.E
   return (
     <View style={styles.container}>
       <List.Accordion
+        expanded={expanded}
+        onPress={onPressAccordion}
         style={styles.containerAccordion}
         title={
           <View style={styles.containerAccordionTitle}>
@@ -37,11 +51,19 @@ const FeesInfo = ({ amount, fee, currency, conversionRate }: Props): React.JSX.E
       >
         <List.Item style={styles.containerListItem}
                    title={
-                     <Text variant="bodySmall" style={styles.textListItemTitle}>Service fee: ≈{serviceFee} {currency.symbol}</Text>
+                     <Text variant="bodySmall" style={styles.textListItemTitle}>Service fee ({fee * 100}%):
+                       ≈{formatCurrencyNum(serviceFee)} {currency.symbol}</Text>
                    } />
         <List.Item style={styles.containerListItem}
                    title={
-                     <Text variant="bodySmall" style={styles.textListItemTitle}>VAT (5%): ≈{taxFee} {currency.symbol}</Text>
+                     <Text variant="bodySmall" style={styles.textListItemTitle}>VAT (5%):
+                       ≈{formatCurrencyNum(taxFee)} {currency.symbol}</Text>
+                   } />
+        <Divider />
+        <List.Item style={styles.containerListItem}
+                   title={
+                     <Text variant="bodySmall" style={styles.textListItemTitle}>You are sending:
+                       ≈{formatCurrencyNum(sendingAmount)} {currency.symbol}</Text>
                    } />
       </List.Accordion>
     </View>
