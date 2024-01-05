@@ -24,7 +24,7 @@ import DismissKeyboard from '../components/DismissKeyboard.tsx';
 
 const TransferStartScreen = ({ route, navigation }: any) => {
   const currencyFrom = CurrencyAED;
-  const [currencyTo, setCurrencyTo] = useState(CurrencyUSD);
+  const [currencyTo, setCurrencyTo] = useState(CurrencyAED);
   const [conversionRate, setConversionRate] = useState(ConversionRateAED);
 
   const amountFromRef = useRef<TextInput | any>(null);
