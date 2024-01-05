@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Button } from 'react-native-paper';
 import { StyleSheet, View } from 'react-native';
 import { appTheme } from '../providers/ThemeProvider.tsx';
 import ProcessingTimeInfo from '../components/ProcessingTimeInfo.tsx';
 import InputMoneyAmount from '../components/InputMoneyAmount.tsx';
-import { calculateFees, calculateSendAmount, convert } from '../utils/conversion.ts';
+import { calculateFees, calculateSendAmount, convert, Fees } from '../utils/conversion.ts';
 import { ConversionRateAED, ConversionRates, CurrencyAED, CurrencyUSD } from '../services/api.ts';
 import ButtonCurrencySelector from '../components/ButtonCurrencySelector.tsx';
 import FeesInfo from '../components/FeesInfo.tsx';
@@ -18,20 +18,29 @@ const TransferStartScreen = ({ route, navigation }: any) => {
   const [amountFrom, setAmountFrom] = useState(0);
   const [amountTo, setAmountTo] = useState(0);
 
-  const fees = useMemo(() => calculateFees(amountFrom, currencyFrom.decimalDigits), [amountFrom])
-  const sendingAmount = useMemo<number>(() => calculateSendAmount(amountFrom, currencyFrom.decimalDigits, fees), [fees]);
+  const [fees, setFees] = useState<Fees>({ serviceFee: 0, vatFee: 0 });
+  const [sendingAmount, setSendingAmount] = useState<number>(0);
 
   const convertTo = useCallback(
     (from: number) => {
-      setAmountFrom(from);
-      setAmountTo(convert(from, conversionRate.rate, currencyTo.decimalDigits));
+      const feesNew = calculateFees(from, currencyFrom.decimalDigits)
+      const sendingAmountNew = calculateSendAmount(from, currencyFrom.decimalDigits, feesNew);
+
+      setFees(feesNew);
+      setSendingAmount(sendingAmountNew);
+      setAmountTo(convert(sendingAmountNew, conversionRate.rate, currencyTo.decimalDigits));
     },
     [currencyTo.decimalDigits, conversionRate.rate],
   );
   const convertFrom = useCallback(
     (to: number) => {
-      setAmountTo(to);
-      setAmountFrom(convert(to, conversionRate.inverseRate, currencyFrom.decimalDigits));
+      const amountFromNew = convert(to, conversionRate.inverseRate, currencyFrom.decimalDigits);
+      const feesNew = calculateFees(amountFromNew, currencyFrom.decimalDigits)
+      const sendingAmountNew = calculateSendAmount(amountFromNew, currencyFrom.decimalDigits, feesNew);
+
+      setFees(feesNew);
+      setSendingAmount(sendingAmountNew);
+      setAmountFrom(sendingAmountNew);
     },
     [currencyFrom.decimalDigits, conversionRate.inverseRate],
   );

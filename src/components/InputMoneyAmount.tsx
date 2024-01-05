@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import { getNumberFormatSettings } from 'react-native-localize';
@@ -67,6 +67,10 @@ const InputMoneyAmount = ({ value, decimals, onChangeAmount }: Props): React.JSX
     const valNumber = parseFormattedNum(displayValue);
     setDisplayValue(formatCurrencyNum(valNumber || 0));
   }
+
+  useEffect(() => {
+    setDisplayValue(formatCurrencyNum(value));
+  }, [value]);
 
   return (
     <View style={styles.container}>
