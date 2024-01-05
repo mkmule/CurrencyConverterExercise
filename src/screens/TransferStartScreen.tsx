@@ -10,7 +10,6 @@ import { ConversionRateAED, ConversionRates, CurrencyAED, CurrencyUSD } from '..
 import ButtonCurrencySelector from '../components/ButtonCurrencySelector.tsx';
 import FeesInfo from '../components/FeesInfo.tsx';
 
-const SERVICE_FEE = 0.03;
 const TransferStartScreen = ({ route, navigation }: any) => {
   const currencyFrom = CurrencyAED;
   const [currencyTo, setCurrencyTo] = useState(CurrencyUSD);
@@ -69,7 +68,7 @@ const TransferStartScreen = ({ route, navigation }: any) => {
           />
         </View>
         <View style={styles.containerInputFormFees}>
-          <FeesInfo amount={amountFrom} fee={SERVICE_FEE} currency={currencyFrom} conversionRate={conversionRate} />
+          <FeesInfo amount={amountFrom} currency={currencyFrom} conversionRate={conversionRate} />
         </View>
         <View style={styles.containerInputMoneyAmount}>
           <View style={styles.containerInputMoneyAmountButton}>

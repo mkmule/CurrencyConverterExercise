@@ -5,16 +5,16 @@ import { appTheme } from '../providers/ThemeProvider.tsx';
 import { ConversionRate, Currency } from '../types/finance.ts';
 import { CurrenciesMap } from '../services/api.ts';
 import { getNumberFormatSettings } from 'react-native-localize';
-import { formatCurrencyNumber, roundCeil, round } from '../utils/currency.ts';
+import { formatCurrencyNumber, round } from '../utils/currency.ts';
+import { calculateFees, DEFAULT_FEES } from '../utils/conversion.ts';
 
 interface Props {
   amount: number;
-  fee: number;
   currency: Currency;
   conversionRate: ConversionRate;
 }
 
-const FeesInfo = ({ amount, fee, currency, conversionRate }: Props): React.JSX.Element => {
+const FeesInfo = ({ amount, currency, conversionRate }: Props): React.JSX.Element => {
   const numberFormatOptions = useMemo(() => getNumberFormatSettings(), []);
   const formatCurrencyNum = useMemo(() => {
     return (val: number) => formatCurrencyNumber(val, currency.decimalDigits, numberFormatOptions);
@@ -22,15 +22,12 @@ const FeesInfo = ({ amount, fee, currency, conversionRate }: Props): React.JSX.E
   const [expanded, setExpanded] = useState(true);
   const onPressAccordion = () => setExpanded(!expanded);
 
-  const serviceFee = useMemo<number>(() => {
-    return roundCeil(amount * fee, currency.decimalDigits);
-  }, [amount, fee]);
-  const taxFee = useMemo<number>(() => {
-    return roundCeil(0.05 * serviceFee, currency.decimalDigits);
-  }, [serviceFee]);
+  const { serviceFee, vatFee } = useMemo(() => {
+    return calculateFees(amount, currency.decimalDigits)
+  }, [amount])
   const sendingAmount = useMemo<number>(() => {
-    return round(amount - serviceFee - taxFee, currency.decimalDigits);
-  }, [serviceFee, taxFee]);
+    return round(amount - serviceFee - vatFee, currency.decimalDigits);
+  }, [serviceFee, vatFee]);
 
   const currencyTo = useMemo(() => {
     return CurrenciesMap[conversionRate.code] as Currency;
@@ -51,13 +48,14 @@ const FeesInfo = ({ amount, fee, currency, conversionRate }: Props): React.JSX.E
       >
         <List.Item style={styles.containerListItem}
                    title={
-                     <Text variant="bodySmall" style={styles.textListItemTitle}>Service fee ({fee * 100}%):
+                     <Text variant="bodySmall" style={styles.textListItemTitle}>Service fee
+                       ({DEFAULT_FEES.service * 100}%):
                        ≈{formatCurrencyNum(serviceFee)} {currency.symbol}</Text>
                    } />
         <List.Item style={styles.containerListItem}
                    title={
-                     <Text variant="bodySmall" style={styles.textListItemTitle}>VAT (5%):
-                       ≈{formatCurrencyNum(taxFee)} {currency.symbol}</Text>
+                     <Text variant="bodySmall" style={styles.textListItemTitle}>VAT ({DEFAULT_FEES.vat * 100}%):
+                       ≈{formatCurrencyNum(vatFee)} {currency.symbol}</Text>
                    } />
         <Divider />
         <List.Item style={styles.containerListItem}
