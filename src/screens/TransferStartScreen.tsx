@@ -9,6 +9,7 @@ import { calculateFees, calculateSendAmount, convert, Fees } from '../utils/conv
 import { ConversionRateAED, ConversionRates, CurrencyAED, CurrencyUSD } from '../services/api.ts';
 import ButtonCurrencySelector from '../components/ButtonCurrencySelector.tsx';
 import FeesInfo from '../components/FeesInfo.tsx';
+import DismissKeyboard from '../components/DismissKeyboard.tsx';
 
 const TransferStartScreen = ({ route, navigation }: any) => {
   const currencyFrom = CurrencyAED;
@@ -71,58 +72,60 @@ const TransferStartScreen = ({ route, navigation }: any) => {
   }, [route.params?.selectedCurrency]);
 
   return (
-    <View style={styles.container}>
-      <View style={styles.containerInputForm}>
-        <View style={styles.containerInputMoneyAmount}>
-          <View style={styles.containerInputMoneyAmountButton}>
-            <ButtonCurrencySelector
-              title={'You send exactly'}
-              currency={currencyFrom}
-              disabled
-            />
-          </View>
-          <InputMoneyAmount
-            decimals={2}
-            onChangeAmount={convertTo}
-            ref={amountFromRef}
-            value={amountFrom}
-          />
-        </View>
-        <View style={styles.containerInputFormFees}>
-          <FeesInfo
-            conversionRate={conversionRate}
-            currency={currencyFrom}
-            fees={fees}
-            sendingAmount={sendingAmount}
-          />
-        </View>
-        <View style={styles.containerInputMoneyAmount}>
-          <View style={styles.containerInputMoneyAmountButton}>
-            <ButtonCurrencySelector
-              title={'Recipient gets'}
-              currency={currencyTo}
-              onButtonPressed={onOpenCurrencySelection}
-            />
-          </View>
-          <View style={styles.containerInputMoneyAmountInput}>
+    <DismissKeyboard>
+      <View style={styles.container}>
+        <View style={styles.containerInputForm}>
+          <View style={styles.containerInputMoneyAmount}>
+            <View style={styles.containerInputMoneyAmountButton}>
+              <ButtonCurrencySelector
+                title={'You send exactly'}
+                currency={currencyFrom}
+                disabled
+              />
+            </View>
             <InputMoneyAmount
               decimals={2}
-              value={amountTo}
-              onChangeAmount={convertFrom}
+              onChangeAmount={convertTo}
+              ref={amountFromRef}
+              value={amountFrom}
             />
           </View>
+          <View style={styles.containerInputFormFees}>
+            <FeesInfo
+              conversionRate={conversionRate}
+              currency={currencyFrom}
+              fees={fees}
+              sendingAmount={sendingAmount}
+            />
+          </View>
+          <View style={styles.containerInputMoneyAmount}>
+            <View style={styles.containerInputMoneyAmountButton}>
+              <ButtonCurrencySelector
+                title={'Recipient gets'}
+                currency={currencyTo}
+                onButtonPressed={onOpenCurrencySelection}
+              />
+            </View>
+            <View style={styles.containerInputMoneyAmountInput}>
+              <InputMoneyAmount
+                decimals={2}
+                value={amountTo}
+                onChangeAmount={convertFrom}
+              />
+            </View>
+          </View>
+        </View>
+
+        <View style={styles.containerProcessingTime}>
+          <ProcessingTimeInfo displayTime={'1 Hour'} />
+        </View>
+        <View style={styles.containerSubmitAction}>
+          <Button icon="bank-transfer-out" mode="contained" onPress={onStartTransfer}>
+            Start transfer
+          </Button>
         </View>
       </View>
-
-      <View style={styles.containerProcessingTime}>
-        <ProcessingTimeInfo displayTime={'1 Hour'} />
-      </View>
-      <View style={styles.containerSubmitAction}>
-        <Button icon="bank-transfer-out" mode="contained" onPress={onStartTransfer}>
-          Start transfer
-        </Button>
-      </View>
-    </View>
+    </DismissKeyboard>
   );
 };
 
