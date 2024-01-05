@@ -36,13 +36,13 @@ const TransferStartScreen = ({ route, navigation }: any) => {
   );
   const convertFrom = useCallback(
     (to: number) => {
-      const amountToEquivalent = convert(to, conversionRate.inverseRate, currencyFrom.decimalDigits);
-      const amountFromNew = amountToEquivalent / (1 - DEFAULT_FEES.service - (DEFAULT_FEES.service * DEFAULT_FEES.vat));
-      const feesNew = calculateFees(amountFromNew, currencyFrom.decimalDigits)
+      const equivalentAmount = convert(to, conversionRate.inverseRate, currencyFrom.decimalDigits);
+      const estimatedAmountFrom = equivalentAmount / (1 - DEFAULT_FEES.service - (DEFAULT_FEES.service * DEFAULT_FEES.vat));
+      const feesNew = calculateFees(estimatedAmountFrom, currencyFrom.decimalDigits)
 
       setFees(feesNew);
       setSendingAmount(to);
-      setAmountFrom(amountFromNew);
+      setAmountFrom(to + feesNew.serviceFee + feesNew.vatFee);
     },
     [currencyFrom.decimalDigits, conversionRate.inverseRate],
   );
