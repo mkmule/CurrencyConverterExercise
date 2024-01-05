@@ -6,9 +6,10 @@ interface Props {
 }
 
 const DismissKeyboard = ({ children }: Props) => (
-  <TouchableWithoutFeedback accessible={false} onPress={() => Keyboard.dismiss()}>
+  <TouchableWithoutFeedback
+    accessible={false}
+    onPress={() => Keyboard.dismiss()}>
     {children}
   </TouchableWithoutFeedback>
 );
 export default DismissKeyboard;
-

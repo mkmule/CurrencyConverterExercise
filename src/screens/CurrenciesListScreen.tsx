@@ -45,7 +45,9 @@ const CurrenciesListScreen = ({ navigation }: any) => {
           value={searchQuery}
         />
       </View>
-      <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.containerList}>
+      <ScrollView
+        contentInsetAdjustmentBehavior="automatic"
+        style={styles.containerList}>
         {currenciesFiltered.map(currency => (
           <List.Item
             onPress={() => onPressCurrency(currency)}

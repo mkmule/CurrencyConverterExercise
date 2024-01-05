@@ -15,7 +15,7 @@ const CurrenciesListScreenByCountry = ({ navigation }: any) => {
   const onChangeSearch = (query: string) => setSearchQuery(query);
   const onPressCurrency = (country: Country) => {
     navigation.navigate('TransferStartScreen', {
-      selectedCurrency: ({ ...country.currency, emoji: country.emoji }),
+      selectedCurrency: { ...country.currency, emoji: country.emoji },
     });
   };
 
@@ -24,9 +24,14 @@ const CurrenciesListScreenByCountry = ({ navigation }: any) => {
       // TODO: Extract and write tests
       setCountriesFiltered(
         Countries.filter(country => {
-          return [...Object.values(country), ...Object.values(country.currency)].some(property => {
+          return [
+            ...Object.values(country),
+            ...Object.values(country.currency),
+          ].some(property => {
             if (typeof property === 'string') {
-              return property.toUpperCase().includes(debouncedSearchQuery.toUpperCase());
+              return property
+                .toUpperCase()
+                .includes(debouncedSearchQuery.toUpperCase());
             }
           });
         }),
@@ -47,11 +52,17 @@ const CurrenciesListScreenByCountry = ({ navigation }: any) => {
           value={searchQuery}
         />
       </View>
-      <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.containerList}>
+      <ScrollView
+        contentInsetAdjustmentBehavior="automatic"
+        style={styles.containerList}>
         {countriesFiltered.map(country => (
           <List.Item
             style={styles.containerListItem}
-            left={() => (<View style={styles.containerFlag}><Text>{country.emoji}</Text></View>)}
+            left={() => (
+              <View style={styles.containerFlag}>
+                <Text>{country.emoji}</Text>
+              </View>
+            )}
             onPress={() => onPressCurrency(country)}
             key={country.code}
             title={`(${country.currency.code}) ${country.name}`}

@@ -26,4 +26,3 @@ export interface Country {
   name: string;
   unicode: string;
 }
-

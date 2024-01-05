@@ -15,18 +15,24 @@ interface Props {
   sendingAmount: number;
 }
 
-const FeesInfo = ({ fees, sendingAmount, currency, conversionRate }: Props): React.JSX.Element => {
+const FeesInfo = ({
+  fees,
+  sendingAmount,
+  currency,
+  conversionRate,
+}: Props): React.JSX.Element => {
   const numberFormatOptions = useMemo(() => getNumberFormatSettings(), []);
   const formatCurrencyNum = useMemo(() => {
-    return (val: number) => formatCurrencyNumber(val, currency.decimalDigits, numberFormatOptions);
-  }, [currency.decimalDigits, numberFormatOptions])
+    return (val: number) =>
+      formatCurrencyNumber(val, currency.decimalDigits, numberFormatOptions);
+  }, [currency.decimalDigits, numberFormatOptions]);
 
   const [expanded, setExpanded] = useState(true);
   const onPressAccordion = () => setExpanded(!expanded);
 
   const currencyTo = useMemo(() => {
     return CurrenciesMap[conversionRate.code] as Currency;
-  }, [conversionRate])
+  }, [conversionRate]);
 
   return (
     <View style={styles.container}>
@@ -36,28 +42,42 @@ const FeesInfo = ({ fees, sendingAmount, currency, conversionRate }: Props): Rea
         style={styles.containerAccordion}
         title={
           <View style={styles.containerAccordionTitle}>
-            <Text>1 {currency.code} ≈ {(conversionRate.rate).toFixed(currencyTo.decimalDigits)} {currencyTo.code}</Text>
+            <Text>
+              1 {currency.code} ≈{' '}
+              {conversionRate.rate.toFixed(currencyTo.decimalDigits)}{' '}
+              {currencyTo.code}
+            </Text>
             <Text variant="labelLarge">Fees</Text>
           </View>
-        }
-      >
-        <List.Item style={styles.containerListItem}
-                   title={
-                     <Text variant="bodySmall" style={styles.textListItemTitle}>Service fee
-                       ({DEFAULT_FEES.service * 100}%):
-                       ≈{formatCurrencyNum(fees.serviceFee)} {currency.symbol}</Text>
-                   } />
-        <List.Item style={styles.containerListItem}
-                   title={
-                     <Text variant="bodySmall" style={styles.textListItemTitle}>VAT ({DEFAULT_FEES.vat * 100}%):
-                       ≈{formatCurrencyNum(fees.vatFee)} {currency.symbol}</Text>
-                   } />
+        }>
+        <List.Item
+          style={styles.containerListItem}
+          title={
+            <Text variant="bodySmall" style={styles.textListItemTitle}>
+              Service fee ({DEFAULT_FEES.service * 100}%): ≈
+              {formatCurrencyNum(fees.serviceFee)} {currency.symbol}
+            </Text>
+          }
+        />
+        <List.Item
+          style={styles.containerListItem}
+          title={
+            <Text variant="bodySmall" style={styles.textListItemTitle}>
+              VAT ({DEFAULT_FEES.vat * 100}%): ≈{formatCurrencyNum(fees.vatFee)}{' '}
+              {currency.symbol}
+            </Text>
+          }
+        />
         <Divider />
-        <List.Item style={styles.containerListItem}
-                   title={
-                     <Text variant="bodySmall" style={styles.textListItemTitle}>You are sending:
-                       ≈{formatCurrencyNum(sendingAmount)} {currency.symbol}</Text>
-                   } />
+        <List.Item
+          style={styles.containerListItem}
+          title={
+            <Text variant="bodySmall" style={styles.textListItemTitle}>
+              You are sending: ≈{formatCurrencyNum(sendingAmount)}{' '}
+              {currency.symbol}
+            </Text>
+          }
+        />
       </List.Accordion>
     </View>
   );
@@ -69,7 +89,6 @@ const styles = StyleSheet.create({
     borderLeftWidth: 1,
     marginLeft: appTheme.spacing.base,
     paddingLeft: appTheme.spacing.base,
-
   },
   containerAccordion: {
     backgroundColor: appTheme.colors.surfaceVariant,

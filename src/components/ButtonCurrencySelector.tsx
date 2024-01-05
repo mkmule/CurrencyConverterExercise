@@ -12,27 +12,34 @@ interface Props {
   title?: string;
 }
 
-const ButtonCurrencySelector = ({ title, disabled, currency, onButtonPressed }: Props): React.JSX.Element => {
+const ButtonCurrencySelector = ({
+  title,
+  disabled,
+  currency,
+  onButtonPressed,
+}: Props): React.JSX.Element => {
   return (
     <Button
       mode="contained"
       disabled={disabled}
       onPress={onButtonPressed}
       style={styles.container}
-      labelStyle={{ marginHorizontal: 0 }}
-    >
+      labelStyle={styles.labelStyle}>
       <View>
         {title && <Text style={styles.textTitle}>{title}</Text>}
         <View style={styles.containerCurrency}>
-          {currency.emoji && <Text style={styles.textEmoji}>{currency.emoji}</Text>}
+          {currency.emoji && (
+            <Text style={styles.textEmoji}>{currency.emoji}</Text>
+          )}
           <Text style={styles.textCurrency}>{currency.code}</Text>
-          {onButtonPressed &&
+          {onButtonPressed && (
             <MaterialCommunityIcons
               style={styles.containerChevron}
               name="chevron-down"
               size={20}
               color={appTheme.colors.surface}
-            />}
+            />
+          )}
         </View>
       </View>
     </Button>
@@ -44,6 +51,9 @@ const styles = StyleSheet.create({
     flex: 1,
     borderRadius: appTheme.spacing.base,
     backgroundColor: '#6454f6',
+  },
+  labelStyle: {
+    marginHorizontal: 0,
   },
   containerCurrency: {
     display: 'flex',

@@ -4,5 +4,6 @@ module.exports = {
   rules: {
     'object-curly-spacing': ['warn', 'always'],
     'react/react-in-jsx-scope': ['off'],
+    'react/no-unstable-nested-components': ['off'],
   },
 };

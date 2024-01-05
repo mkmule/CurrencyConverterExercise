@@ -5,8 +5,19 @@ import { StyleSheet, TextInput, View } from 'react-native';
 import { appTheme } from '../providers/ThemeProvider.tsx';
 import ProcessingTimeInfo from '../components/ProcessingTimeInfo.tsx';
 import InputMoneyAmount from '../components/InputMoneyAmount.tsx';
-import { calculateFees, calculateSendAmount, convert, DEFAULT_FEES, Fees } from '../utils/conversion.ts';
-import { ConversionRateAED, ConversionRates, CurrencyAED, CurrencyUSD } from '../services/api.ts';
+import {
+  calculateFees,
+  calculateSendAmount,
+  convert,
+  DEFAULT_FEES,
+  Fees,
+} from '../utils/conversion.ts';
+import {
+  ConversionRateAED,
+  ConversionRates,
+  CurrencyAED,
+  CurrencyUSD,
+} from '../services/api.ts';
 import ButtonCurrencySelector from '../components/ButtonCurrencySelector.tsx';
 import FeesInfo from '../components/FeesInfo.tsx';
 import DismissKeyboard from '../components/DismissKeyboard.tsx';
@@ -25,20 +36,39 @@ const TransferStartScreen = ({ route, navigation }: any) => {
 
   const convertTo = useCallback(
     (from: number) => {
-      const feesNew = calculateFees(from, currencyFrom.decimalDigits)
-      const sendingAmountNew = calculateSendAmount(from, currencyFrom.decimalDigits, feesNew);
+      const feesNew = calculateFees(from, currencyFrom.decimalDigits);
+      const sendingAmountNew = calculateSendAmount(
+        from,
+        currencyFrom.decimalDigits,
+        feesNew,
+      );
 
       setFees(feesNew);
       setSendingAmount(sendingAmountNew);
-      setAmountTo(convert(sendingAmountNew, conversionRate.rate, currencyTo.decimalDigits));
+      setAmountTo(
+        convert(
+          sendingAmountNew,
+          conversionRate.rate,
+          currencyTo.decimalDigits,
+        ),
+      );
     },
-    [currencyTo.decimalDigits, conversionRate.rate],
+    [currencyTo.decimalDigits, currencyFrom.decimalDigits, conversionRate.rate],
   );
   const convertFrom = useCallback(
     (to: number) => {
-      const equivalentAmount = convert(to, conversionRate.inverseRate, currencyFrom.decimalDigits);
-      const estimatedAmountFrom = equivalentAmount / (1 - DEFAULT_FEES.service - (DEFAULT_FEES.service * DEFAULT_FEES.vat));
-      const feesNew = calculateFees(estimatedAmountFrom, currencyFrom.decimalDigits)
+      const equivalentAmount = convert(
+        to,
+        conversionRate.inverseRate,
+        currencyFrom.decimalDigits,
+      );
+      const estimatedAmountFrom =
+        equivalentAmount /
+        (1 - DEFAULT_FEES.service - DEFAULT_FEES.service * DEFAULT_FEES.vat);
+      const feesNew = calculateFees(
+        estimatedAmountFrom,
+        currencyFrom.decimalDigits,
+      );
 
       setFees(feesNew);
       setSendingAmount(to);
@@ -49,7 +79,7 @@ const TransferStartScreen = ({ route, navigation }: any) => {
 
   const onOpenCurrencySelection = () => {
     navigation.navigate('CurrenciesListScreen');
-  }
+  };
   const onStartTransfer = () => {
     console.log('Pressed: onStartTransfer');
   };
@@ -61,15 +91,24 @@ const TransferStartScreen = ({ route, navigation }: any) => {
       const newCurrency = selectedCurrency;
       const newRate = ConversionRates[selectedCurrency.code];
       const recoveredAmountFrom = amountFromRef.current?.getDisplayValueNum?.();
-      const feesNew = calculateFees(recoveredAmountFrom, currencyFrom.decimalDigits)
-      const sendingAmountNew = calculateSendAmount(recoveredAmountFrom, currencyFrom.decimalDigits, feesNew);
+      const feesNew = calculateFees(
+        recoveredAmountFrom,
+        currencyFrom.decimalDigits,
+      );
+      const sendingAmountNew = calculateSendAmount(
+        recoveredAmountFrom,
+        currencyFrom.decimalDigits,
+        feesNew,
+      );
 
       setAmountFrom(recoveredAmountFrom);
-      setAmountTo(convert(sendingAmountNew, newRate.rate, newCurrency.decimalDigits));
+      setAmountTo(
+        convert(sendingAmountNew, newRate.rate, newCurrency.decimalDigits),
+      );
       setCurrencyTo(newCurrency);
       setConversionRate(newRate);
     }
-  }, [route.params?.selectedCurrency]);
+  }, [route.params?.selectedCurrency, currencyFrom.decimalDigits]);
 
   return (
     <DismissKeyboard>
@@ -120,7 +159,10 @@ const TransferStartScreen = ({ route, navigation }: any) => {
           <ProcessingTimeInfo displayTime={'1 Hour'} />
         </View>
         <View style={styles.containerSubmitAction}>
-          <Button icon="bank-transfer-out" mode="contained" onPress={onStartTransfer}>
+          <Button
+            icon="bank-transfer-out"
+            mode="contained"
+            onPress={onStartTransfer}>
             Start transfer
           </Button>
         </View>
