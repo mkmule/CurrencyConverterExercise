@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import { getNumberFormatSettings } from 'react-native-localize';
 
-import { formatCurrencyNumber, parseFormattedNumber, splitFormattedNumber } from '../utils/conversion.ts';
+import { formatCurrencyNumber, parseFormattedNumber, splitFormattedNumber } from '../utils/currency.ts';
 
 interface Props {
   value: number;
