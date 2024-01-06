@@ -6,6 +6,7 @@ You can check quick demo here: [exercise_demo.mp4](exercise_demo.mp4).
 
 **Implemented features**:
 - Conversion _A to B_ and _B to A_  
+- Fees calculation: Service fee + VAT fee, that are included in conversion amount
 - Amount value formatting with grouping and decimal separator as per device's region/locale
 - Currency selector with Search capability of: Country, Currency name or Symbol
 - Conversion on currency change
