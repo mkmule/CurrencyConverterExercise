@@ -4,6 +4,12 @@ be seen here: [exercise.pdf](exercise.pdf). Overall time spent on this exercise 
 # Demo
 You can check quick demo here: [exercise_demo.mp4](exercise_demo.mp4).
 
+**Implemented features**:
+- Conversion _A to B_ and _B to A_  
+- Amount value formatting with grouping and decimal separator as per device's region/locale
+- Currency selector with Search capability of: Country, Currency name or Symbol
+- Conversion on currency change
+
 # Technical decisions
 ## Extra dependencies
 - Used React Native typescript template _without Expo_ (less heavy dependencies)
