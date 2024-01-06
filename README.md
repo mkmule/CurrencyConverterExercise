@@ -4,6 +4,10 @@ be seen here: [exercise.pdf](exercise.pdf). Overall time spent on this exercise 
 # Demo
 You can check quick demo here: [exercise_demo.mp4](exercise_demo.mp4).
 
+![Main screen](https://github.com/mkmule/CurrencyConverterExercise/blob/main/exercise_demo_screen-1.png?raw=true)
+![Currency selector](https://github.com/mkmule/CurrencyConverterExercise/blob/main/exercise_demo_screen-2.png?raw=true)
+
+
 **Implemented features**:
 - Conversion _A to B_ and _B to A_  
 - Fees calculation: Service fee + VAT fee, that are included in conversion amount
