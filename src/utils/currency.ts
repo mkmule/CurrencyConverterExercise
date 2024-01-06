@@ -44,14 +44,14 @@ export const splitFormattedNumber = (
       options.decimalSeparator,
     );
     numInteger = numInteger
-      .replace(options.groupingSeparator, '')
+      .replaceAll(options.groupingSeparator, '')
       .replace(/\s/g, '');
 
     return [numInteger, numDecimals];
   }
 
   return [
-    displayNum.replace(options.groupingSeparator, '').replace(/\s/g, ''),
+    displayNum.replaceAll(options.groupingSeparator, '').replace(/\s/g, ''),
     '',
   ];
 };
@@ -81,7 +81,7 @@ export const parseFormattedNumber = (
 
   const [numInteger] = splitFormattedNumber(displayNum, decimals, options);
   if (numInteger.length) {
-    return Number(displayNum.replace(options.groupingSeparator, ''));
+    return Number(displayNum.replaceAll(options.groupingSeparator, ''));
   }
 
   return null;
